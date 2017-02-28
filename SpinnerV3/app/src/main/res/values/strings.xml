@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Spinner</string>
+    <string-array name="scifimovies">
+        <item>BattleStar Gallactica</item>
+        <item>Voyager</item>
+        <item>Next Generation</item>
+    </string-array>
+    <string-array name="miscNames">
+        <item>Name 1</item>
+        <item>Name 2</item>
+        <item>Name 3</item>
+    </string-array>
+
+</resources>

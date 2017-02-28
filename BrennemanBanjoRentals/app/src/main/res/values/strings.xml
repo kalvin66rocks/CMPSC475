@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Brenneman Instrument Rentals</string>
+    <string name="numBanjos"># of Instruments:</string>
+    <string name="numCases"># of Cases:</string>
+    <string name="hintBanjos"># of Instruments</string>
+    <string name="hintCases"># of Cases</string>
+    <string name="baseRentalName">Base Rental Fees:</string>
+    <string name="stateSalesTaxName">State Sales Tax:</string>
+    <string name="insuranceName">Insurance:</string>
+    <string name="totalCostName">Total Cost:</string>
+    <string name="zeroDollars">$0.00</string>
+    <string name="insuranceSwitchText">Insurance</string>
+    <string-array name="instrumentNames">
+        <item>Banjo(9)</item>
+        <item>Mandolin(7)</item>
+        <item>Violin (10)</item>
+        <item>Ukulele(5)</item>
+    </string-array>
+</resources>

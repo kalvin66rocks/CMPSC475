@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TapButton</string>
+    <string name="tapBtn">Increase Count</string>
+    <string name="notTapBtn">Decrease Count</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="five">5</string>
+    <string name="ten">10</string>
+    <string name="negative">Negative?</string>
+</resources>

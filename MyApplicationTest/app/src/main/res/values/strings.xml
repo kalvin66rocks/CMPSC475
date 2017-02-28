@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Activity</string>
+    <string name="test_string">This is a Test</string>
+    <string name="hello">Hello</string>
+    <string name="goodbye">Goodbye</string>
+    <string name="exclaim_img">Exclamation!</string>
+    <string name="exclaim_btn">Exclamation</string>
+    <string name="creepy">Creepy</string>
+    <string name="not_creepy">Not Creepy</string>
+    <string name="weAre">We Are</string>
+    <string name="pennState">Penn State</string>
+    <string name="psu">PSU</string>
+</resources>
