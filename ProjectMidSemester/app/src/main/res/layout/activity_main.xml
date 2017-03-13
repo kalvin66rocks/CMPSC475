@@ -11,10 +11,12 @@
     tools:context="com.kevin.projectmidsemester.MainActivity">
 
     <TextView
+        android:id="@+id/coolFact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="58dp"
-        android:id="@+id/coolFact"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="58dp"
+        android:drawableLeft="@drawable/planeswalker_symbol"
+        android:drawableRight="@drawable/planeswalker_symbol" />
 </RelativeLayout>
