@@ -14,7 +14,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String[] coolFacts = {"How did magic begin?", "How do I play?", "Cool Fact 3",
+        String[] coolFacts = {"How did magic begin?", "How do I play?", "Check Your Knowledge",
                 "Cool Fact 4", "Cool Fact 5"};
         setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_main, R.id.coolFact, coolFacts));
     }
@@ -22,15 +22,13 @@ public class MainActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         switch (position) {
             case 0:
-                //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://gatherer.wizards.com/Pages/Default.aspx")));
                 startActivity(new Intent(MainActivity.this, History.class));
                 break;
             case 1:
-                //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.reddit.com/r/magictcg")));
                 startActivity(new Intent(MainActivity.this, About.class));
                 break;
             case 2:
-                //startActivity(new Intent(MainActivity.this, Bridge.class));
+                startActivity(new Intent(MainActivity.this, Question.class));
                 break;
             case 3:
                 //startActivity(new Intent(MainActivity.this, Trolley.class));
