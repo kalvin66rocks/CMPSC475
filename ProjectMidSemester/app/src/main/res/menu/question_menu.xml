@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.g2d.junk.MainActivity">
+    <item
+        android:id="@+id/action_settings1"
+        android:orderInCategory="100"
+        android:title="Background Color"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_settings2"
+        android:orderInCategory="100"
+        android:title="   New"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_settings3"
+        android:orderInCategory="100"
+        android:title="   New"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_settings4"
+        android:orderInCategory="100"
+        android:title="   Original"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_settings6"
+        android:orderInCategory="100"
+        android:title="Number of Tries"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/action_settings7"
+                android:orderInCategory="100"
+                android:title="   2"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/action_settings8"
+                android:orderInCategory="100"
+                android:title="   3"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/action_settings9"
+                android:orderInCategory="100"
+                android:title="   4"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+
+</menu>
