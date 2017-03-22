@@ -13,20 +13,20 @@
     <item
         android:id="@+id/action_settings2"
         android:orderInCategory="100"
-        android:title="   New"
-        app:showAsAction="never"/>
+        android:title="   Cyan"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_settings3"
         android:orderInCategory="100"
-        android:title="   New"
-        app:showAsAction="never"/>
+        android:title="   Green"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_settings4"
         android:orderInCategory="100"
-        android:title="   Original"
-        app:showAsAction="never"/>
+        android:title="   Red"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_settings6"
