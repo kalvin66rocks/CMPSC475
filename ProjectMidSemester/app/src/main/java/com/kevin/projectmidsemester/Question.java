@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -15,10 +16,14 @@ import android.widget.Toast;
  */
 
 public class Question extends Activity {
+    private TextView numTries;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questionscreen1);
+
+        numTries = (TextView) findViewById(R.id.remainingTries);
     }
 
     @Override
@@ -33,25 +38,28 @@ public class Question extends Activity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.layoutSSS);
         switch (id){
             case R.id.action_settings2:
-                Toast.makeText(this, "Blue", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Blue", Toast.LENGTH_SHORT).show();
                 layout.setBackgroundColor(Color.BLUE);
                 return true;
             case R.id.action_settings3:
-                Toast.makeText(this, "Yellow", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Yellow", Toast.LENGTH_SHORT).show();
                 layout.setBackgroundColor(Color.YELLOW);
                 return true;
             case R.id.action_settings4:
-                Toast.makeText(this, "Red", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Red", Toast.LENGTH_SHORT).show();
                 layout.setBackgroundColor(Color.RED);
                 return true;
             case R.id.action_settings7:
-                Toast.makeText(this, "2 tries, tries reset", Toast.LENGTH_SHORT).show();
+                numTries.setText("2");
+                Toast.makeText(this, "tries reset", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_settings8:
-                Toast.makeText(this, "3 tries, tries reset", Toast.LENGTH_SHORT).show();
+                numTries.setText("3");
+                Toast.makeText(this, "tries reset", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_settings9:
-                Toast.makeText(this, "4 tries, tries reset", Toast.LENGTH_SHORT).show();
+                numTries.setText("4");
+                Toast.makeText(this, "tries reset", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
