@@ -21,7 +21,7 @@ public class SecondaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.secondary_main); //regular screen with listview
-        ArrayAdapter<String> myAddapter = new ArrayAdapter<String>(this,R.layout.listitem,R.id.listitem,ourMajors);
+        ArrayAdapter<String> myAddapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,android.R.id.text1,ourMajors);
         myListView = (ListView)findViewById(R.id.listview2);
         myListView.setAdapter(myAddapter);
         //setListAdapter(new ArrayAdapter<String>(this,R.layout.listitem,R.id.listitem));

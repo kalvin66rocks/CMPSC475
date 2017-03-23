@@ -14,7 +14,7 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
         String[] myLetters = {"a","b","c"};
-        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_2,myLetters));
+        setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,myLetters));
     }
 
     @Override
