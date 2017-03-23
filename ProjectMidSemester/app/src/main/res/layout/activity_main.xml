@@ -18,5 +18,6 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="58dp"
         android:drawableLeft="@drawable/planeswalker_symbol"
-        android:drawableRight="@drawable/planeswalker_symbol" />
+        android:drawableRight="@drawable/planeswalker_symbol"
+        android:textAlignment="center" />
 </RelativeLayout>

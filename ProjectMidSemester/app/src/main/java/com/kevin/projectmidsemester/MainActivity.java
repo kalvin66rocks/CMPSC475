@@ -15,7 +15,7 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String[] coolFacts = {"How did magic begin?", "How do I play?", "Check Your Knowledge",
-                "Cool Fact 4", "Cool Fact 5"};
+                "Empty", "Empty"};
         setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_main, R.id.coolFact, coolFacts));
     }
 

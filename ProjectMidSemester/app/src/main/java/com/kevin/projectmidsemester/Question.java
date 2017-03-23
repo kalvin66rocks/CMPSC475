@@ -33,12 +33,12 @@ public class Question extends Activity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.layoutSSS);
         switch (id){
             case R.id.action_settings2:
-                Toast.makeText(this, "Cyan", Toast.LENGTH_SHORT).show();
-                layout.setBackgroundColor(Color.CYAN);
+                Toast.makeText(this, "Blue", Toast.LENGTH_SHORT).show();
+                layout.setBackgroundColor(Color.BLUE);
                 return true;
             case R.id.action_settings3:
-                Toast.makeText(this, "Green", Toast.LENGTH_SHORT).show();
-                layout.setBackgroundColor(Color.GREEN);
+                Toast.makeText(this, "Yellow", Toast.LENGTH_SHORT).show();
+                layout.setBackgroundColor(Color.YELLOW);
                 return true;
             case R.id.action_settings4:
                 Toast.makeText(this, "Red", Toast.LENGTH_SHORT).show();

@@ -13,13 +13,13 @@
     <item
         android:id="@+id/action_settings2"
         android:orderInCategory="100"
-        android:title="   Cyan"
+        android:title="   Blue"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_settings3"
         android:orderInCategory="100"
-        android:title="   Green"
+        android:title="   Yellow"
         app:showAsAction="never" />
 
     <item

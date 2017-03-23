@@ -121,8 +121,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
         android:background="@android:color/background_light"
-        android:text="What is the oldest sanctioned magic formtat that is still played to this day?"
+        android:text="Magic has been around since 1993. What is the oldest sanctioned magic formtat that is still played to this day?"
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 </RelativeLayout>
