@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".History"></activity>
-        <activity android:name=".About"></activity>
+        <activity android:name=".HowToPlay"></activity>
         <activity android:name=".Question"></activity>
     </application>
 

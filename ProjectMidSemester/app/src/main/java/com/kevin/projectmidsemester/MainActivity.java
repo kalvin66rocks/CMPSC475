@@ -14,7 +14,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String[] coolFacts = {"How did magic begin?", "How do I play?", "Check Your Knowledge",
+        String[] coolFacts = {"How did magic begin?", "How do I play?", "What about organized magic?",
                 "Empty", "Empty"};
         setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_main, R.id.coolFact, coolFacts));
     }
@@ -25,16 +25,16 @@ public class MainActivity extends ListActivity {
                 startActivity(new Intent(MainActivity.this, History.class));
                 break;
             case 1:
-                startActivity(new Intent(MainActivity.this, About.class));
+                startActivity(new Intent(MainActivity.this, HowToPlay.class));
                 break;
             case 2:
                 startActivity(new Intent(MainActivity.this, Question.class));
                 break;
             case 3:
-                //startActivity(new Intent(MainActivity.this, Trolley.class));
+                //empty
                 break;
             case 4:
-                //startActivity(new Intent(MainActivity.this, Wharf.class));
+                //empty
                 break;
         }
     }
