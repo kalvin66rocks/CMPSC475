@@ -14,27 +14,80 @@ import android.widget.TextView;
 
 public class Answer extends Activity {
     private int numTries=0;
-    TextView thisIsTest;
+    //TextView answerInformation;
+    TextView result;
+    TextView textViewInfo;
     Intent backToQuestion;
-    private String optionSelected;
+    private int optionSelected;
+    private String notQuite = "Not Quite";
+    private String correct = "Correct!";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.answerscreen1);
 
-        thisIsTest = (TextView) findViewById(R.id.textView6);
+        //answerInformation = (TextView) findViewById(R.id.textView6);
+        result = (TextView) findViewById(R.id.textViewResult);
+        textViewInfo = (TextView) findViewById(R.id.textViewInfo);
         numTries = getIntent().getIntExtra("Number of Tries",0);
-        optionSelected = getIntent().getStringExtra("Option Selected");
-        thisIsTest.setText(optionSelected);
+        optionSelected = getIntent().getIntExtra("Option Selected",0);
+        changeContent(optionSelected);
+        //answerInformation.setText(Integer.toString(optionSelected));
         backToQuestion = new Intent();
     }
 
     public void tryAgain(View view){
         Log.d("Brenneman","going back to asking questions");
-        numTries--;
         backToQuestion.putExtra("New Number of Tries",numTries);
         setResult(Activity.RESULT_OK,backToQuestion);
         finish();
+    }
+
+    public void changeContent(int selected){
+
+        switch (selected){
+            //extended
+            case 0:
+                result.setText(notQuite);
+                numTries--;
+                //do stuff
+                break;
+            //limited
+            case 1:
+                result.setText(notQuite);
+                numTries--;
+                //do stuff
+                break;
+            //standard
+            case 2:
+                result.setText(notQuite);
+                numTries--;
+                textViewInfo.setText(R.string.standard_answer);
+                //do stuff
+                break;
+            //modern
+            case 3:
+                result.setText(notQuite);
+                numTries--;
+                textViewInfo.setText(R.string.modern_answer);
+                //do stuff
+                break;
+            //legacy
+            case 4:
+                result.setText(notQuite);
+                numTries--;
+                textViewInfo.setText(R.string.legacy_answer);
+                //do stuff
+                break;
+            //vintage
+            case 5:
+                result.setText(correct);
+                break;
+
+            default:
+                //do nothing. we will never be here
+                break;
+        }
     }
 }

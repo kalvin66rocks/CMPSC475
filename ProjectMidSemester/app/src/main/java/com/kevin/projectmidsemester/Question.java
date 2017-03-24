@@ -78,7 +78,7 @@ public class Question extends Activity {
         numTriesRemaining = Integer.parseInt(numTries.getText().toString());
         if(numTriesRemaining >0) {
             callAnswer.putExtra("Number of Tries", numTriesRemaining);
-            callAnswer.putExtra("Option Selected", "Legacy");
+            callAnswer.putExtra("Option Selected", 4);
             startActivityForResult(callAnswer, REQUEST_CODE);
         }
         else{
@@ -91,7 +91,7 @@ public class Question extends Activity {
         numTriesRemaining = Integer.parseInt(numTries.getText().toString());
         if(numTriesRemaining >0) {
             callAnswer.putExtra("Number of Tries", numTriesRemaining);
-            callAnswer.putExtra("Option Selected", "Modern");
+            callAnswer.putExtra("Option Selected", 3);
             startActivityForResult(callAnswer, REQUEST_CODE);
         }
         else{
@@ -105,7 +105,7 @@ public class Question extends Activity {
         numTriesRemaining = Integer.parseInt(numTries.getText().toString());
         if(numTriesRemaining >0) {
             callAnswer.putExtra("Number of Tries", numTriesRemaining);
-            callAnswer.putExtra("Option Selected", "Limited");
+            callAnswer.putExtra("Option Selected", 1);
             startActivityForResult(callAnswer, REQUEST_CODE);
         }
         else{
@@ -119,7 +119,7 @@ public class Question extends Activity {
         numTriesRemaining = Integer.parseInt(numTries.getText().toString());
         if(numTriesRemaining >0) {
             callAnswer.putExtra("Number of Tries", numTriesRemaining);
-            callAnswer.putExtra("Option Selected", "Standard");
+            callAnswer.putExtra("Option Selected", 2);
             startActivityForResult(callAnswer, REQUEST_CODE);
         }
         else{
@@ -133,7 +133,7 @@ public class Question extends Activity {
         numTriesRemaining = Integer.parseInt(numTries.getText().toString());
         if(numTriesRemaining >0) {
             callAnswer.putExtra("Number of Tries", numTriesRemaining);
-            callAnswer.putExtra("Option Selected", "Vintage");
+            callAnswer.putExtra("Option Selected", 5);
             startActivityForResult(callAnswer, REQUEST_CODE);
         }
         else{
@@ -147,7 +147,7 @@ public class Question extends Activity {
         numTriesRemaining = Integer.parseInt(numTries.getText().toString());
         if(numTriesRemaining >0) {
             callAnswer.putExtra("Number of Tries", numTriesRemaining);
-            callAnswer.putExtra("Option Selected", "Extended");
+            callAnswer.putExtra("Option Selected", 0);
             startActivityForResult(callAnswer, REQUEST_CODE);
         }
         else{
