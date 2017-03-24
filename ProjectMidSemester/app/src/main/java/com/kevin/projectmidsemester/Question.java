@@ -1,9 +1,11 @@
 package com.kevin.projectmidsemester;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 public class Question extends Activity {
     private TextView numTries;
+    private Intent callAnswer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,14 +27,15 @@ public class Question extends Activity {
         setContentView(R.layout.questionscreen1);
 
         numTries = (TextView) findViewById(R.id.remainingTries);
+        callAnswer = new Intent(this, Answer.class);
     }
-
+    //create menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.question_menu,menu);
         return super.onCreateOptionsMenu(menu);
     }
-
+    //meun handler
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -63,6 +67,43 @@ public class Question extends Activity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void legacy(View view){
+        Log.d("Brenneman","legacy selected");
+        //if statement
+
+
+    }
+
+    public void modern(View view){
+        Log.d("Brenneman","modern selected");
+        //if statement
+
+    }
+
+    public void limited(View view){
+        Log.d("Brenneman","limited selected");
+        //if statement
+
+    }
+
+    public void standard(View view){
+        Log.d("Brenneman","standard selected");
+        //if statement
+
+    }
+
+    public void vintage(View view){
+        Log.d("Brenneman","vintage selected");
+        //if statement
+
+    }
+
+    public void extended(View view){
+        Log.d("Brenneman","extended selected");
+        //if statement
+
     }
 
     public void goToMain(View view){

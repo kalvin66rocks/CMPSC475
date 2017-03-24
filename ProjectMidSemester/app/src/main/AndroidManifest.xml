@@ -18,6 +18,7 @@
         <activity android:name=".History"></activity>
         <activity android:name=".HowToPlay"></activity>
         <activity android:name=".Question"></activity>
+        <activity android:name=".Answer"></activity>
     </application>
 
 </manifest>

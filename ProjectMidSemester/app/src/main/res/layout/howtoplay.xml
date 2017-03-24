@@ -20,7 +20,8 @@
         android:layout_above="@+id/button4"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="20dp"
-        android:text="An article to play from Wizards of the Coast, the company that designs and produces magic cards " />
+        android:onClick="wizardsHowTo"
+        android:text="An article on how to play from Wizards of the Coast, the company that designs and produces magic cards " />
 
     <Button
         android:id="@+id/button4"
@@ -36,11 +37,13 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
         android:text="How Do I Play?"
         android:textAlignment="center"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
     <ImageView
         android:id="@+id/imageView3"
