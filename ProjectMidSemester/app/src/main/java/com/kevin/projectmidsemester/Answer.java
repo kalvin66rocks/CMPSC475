@@ -51,12 +51,14 @@ public class Answer extends Activity {
             case 0:
                 result.setText(notQuite);
                 numTries--;
+                textViewInfo.setText(R.string.standard_answer);
                 //do stuff
                 break;
             //limited
             case 1:
                 result.setText(notQuite);
                 numTries--;
+                textViewInfo.setText(R.string.standard_answer);
                 //do stuff
                 break;
             //standard
