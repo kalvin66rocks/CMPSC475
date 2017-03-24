@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,8 @@ public class Question extends Activity {
     public static final int REQUEST_CODE = 10;
     private TextView numTries;
     private Intent callAnswer;
-    int numberTries;
+    private int numberTries;
+    private int numTriesRemaining;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,15 +59,15 @@ public class Question extends Activity {
                 return true;
             case R.id.action_settings7:
                 numTries.setText("2");
-                Toast.makeText(this, "tries reset", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tries Reset", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_settings8:
                 numTries.setText("3");
-                Toast.makeText(this, "tries reset", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tries Reset", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_settings9:
                 numTries.setText("4");
-                Toast.makeText(this, "tries reset", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Tries Reset", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -73,67 +75,84 @@ public class Question extends Activity {
 
     public void legacy(View view){
         Log.d("Brenneman","legacy selected");
-        //if statement
-        int passValue = Integer.parseInt(numTries.toString());
-        callAnswer.putExtra("Number of Tries", passValue);
-        callAnswer.putExtra("Option Selected", "Legacy");
-        startActivityForResult(callAnswer,REQUEST_CODE);
-        //else make a toast saying that the user is out of tries.
+        numTriesRemaining = Integer.parseInt(numTries.getText().toString());
+        if(numTriesRemaining >0) {
+            callAnswer.putExtra("Number of Tries", numTriesRemaining);
+            callAnswer.putExtra("Option Selected", "Legacy");
+            startActivityForResult(callAnswer, REQUEST_CODE);
+        }
+        else{
+            Toast.makeText(this, "No tries remaining", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void modern(View view){
         Log.d("Brenneman","modern selected");
-        //if statement
-        int passValue = Integer.parseInt(numTries.toString());
-        callAnswer.putExtra("Number of Tries", passValue);
-        callAnswer.putExtra("Option Selected", "Legacy");
-        startActivityForResult(callAnswer,REQUEST_CODE);
-        //else make a toast saying that the user is out of tries.
+        numTriesRemaining = Integer.parseInt(numTries.getText().toString());
+        if(numTriesRemaining >0) {
+            callAnswer.putExtra("Number of Tries", numTriesRemaining);
+            callAnswer.putExtra("Option Selected", "Modern");
+            startActivityForResult(callAnswer, REQUEST_CODE);
+        }
+        else{
+            Toast.makeText(this, "No tries remaining", Toast.LENGTH_LONG).show();
+        }
 
     }
 
     public void limited(View view){
         Log.d("Brenneman","limited selected");
-        //if statement
-        int passValue = Integer.parseInt(numTries.toString());
-        callAnswer.putExtra("Number of Tries", passValue);
-        callAnswer.putExtra("Option Selected", "Legacy");
-        startActivityForResult(callAnswer,REQUEST_CODE);
-        //else make a toast saying that the user is out of tries.
+        numTriesRemaining = Integer.parseInt(numTries.getText().toString());
+        if(numTriesRemaining >0) {
+            callAnswer.putExtra("Number of Tries", numTriesRemaining);
+            callAnswer.putExtra("Option Selected", "Limited");
+            startActivityForResult(callAnswer, REQUEST_CODE);
+        }
+        else{
+            Toast.makeText(this, "No tries remaining", Toast.LENGTH_LONG).show();
+        }
 
     }
 
     public void standard(View view){
         Log.d("Brenneman","standard selected");
-        //if statement
-        int passValue = Integer.parseInt(numTries.toString());
-        callAnswer.putExtra("Number of Tries", passValue);
-        callAnswer.putExtra("Option Selected", "Legacy");
-        startActivityForResult(callAnswer,REQUEST_CODE);
-        //else make a toast saying that the user is out of tries.
+        numTriesRemaining = Integer.parseInt(numTries.getText().toString());
+        if(numTriesRemaining >0) {
+            callAnswer.putExtra("Number of Tries", numTriesRemaining);
+            callAnswer.putExtra("Option Selected", "Standard");
+            startActivityForResult(callAnswer, REQUEST_CODE);
+        }
+        else{
+            Toast.makeText(this, "No tries remaining", Toast.LENGTH_LONG).show();
+        }
 
     }
 
     public void vintage(View view){
         Log.d("Brenneman","vintage selected");
-        //if statement
-        int passValue = Integer.parseInt(numTries.toString());
-        callAnswer.putExtra("Number of Tries", passValue);
-        callAnswer.putExtra("Option Selected", "Legacy");
-        startActivityForResult(callAnswer,REQUEST_CODE);
-        //else make a toast saying that the user is out of tries.
+        numTriesRemaining = Integer.parseInt(numTries.getText().toString());
+        if(numTriesRemaining >0) {
+            callAnswer.putExtra("Number of Tries", numTriesRemaining);
+            callAnswer.putExtra("Option Selected", "Vintage");
+            startActivityForResult(callAnswer, REQUEST_CODE);
+        }
+        else{
+            Toast.makeText(this, "No tries remaining", Toast.LENGTH_LONG).show();
+        }
 
     }
 
     public void extended(View view){
         Log.d("Brenneman","extended selected");
-        //if statement
-        int passValue = Integer.parseInt(numTries.toString());
-        callAnswer.putExtra("Number of Tries", passValue);
-        callAnswer.putExtra("Option Selected", "Legacy");
-        startActivityForResult(callAnswer,REQUEST_CODE);
-        //else make a toast saying that the user is out of tries.
-
+        numTriesRemaining = Integer.parseInt(numTries.getText().toString());
+        if(numTriesRemaining >0) {
+            callAnswer.putExtra("Number of Tries", numTriesRemaining);
+            callAnswer.putExtra("Option Selected", "Extended");
+            startActivityForResult(callAnswer, REQUEST_CODE);
+        }
+        else{
+            Toast.makeText(this, "No tries remaining", Toast.LENGTH_LONG).show();
+        }
     }
 
 
