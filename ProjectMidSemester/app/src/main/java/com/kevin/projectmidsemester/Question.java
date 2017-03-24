@@ -18,8 +18,10 @@ import android.widget.Toast;
  */
 
 public class Question extends Activity {
+    public static final int REQUEST_CODE = 10;
     private TextView numTries;
     private Intent callAnswer;
+    int numberTries;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,37 +74,82 @@ public class Question extends Activity {
     public void legacy(View view){
         Log.d("Brenneman","legacy selected");
         //if statement
-
-
+        int passValue = Integer.parseInt(numTries.toString());
+        callAnswer.putExtra("Number of Tries", passValue);
+        callAnswer.putExtra("Option Selected", "Legacy");
+        startActivityForResult(callAnswer,REQUEST_CODE);
+        //else make a toast saying that the user is out of tries.
     }
 
     public void modern(View view){
         Log.d("Brenneman","modern selected");
         //if statement
+        int passValue = Integer.parseInt(numTries.toString());
+        callAnswer.putExtra("Number of Tries", passValue);
+        callAnswer.putExtra("Option Selected", "Legacy");
+        startActivityForResult(callAnswer,REQUEST_CODE);
+        //else make a toast saying that the user is out of tries.
 
     }
 
     public void limited(View view){
         Log.d("Brenneman","limited selected");
         //if statement
+        int passValue = Integer.parseInt(numTries.toString());
+        callAnswer.putExtra("Number of Tries", passValue);
+        callAnswer.putExtra("Option Selected", "Legacy");
+        startActivityForResult(callAnswer,REQUEST_CODE);
+        //else make a toast saying that the user is out of tries.
 
     }
 
     public void standard(View view){
         Log.d("Brenneman","standard selected");
         //if statement
+        int passValue = Integer.parseInt(numTries.toString());
+        callAnswer.putExtra("Number of Tries", passValue);
+        callAnswer.putExtra("Option Selected", "Legacy");
+        startActivityForResult(callAnswer,REQUEST_CODE);
+        //else make a toast saying that the user is out of tries.
 
     }
 
     public void vintage(View view){
         Log.d("Brenneman","vintage selected");
         //if statement
+        int passValue = Integer.parseInt(numTries.toString());
+        callAnswer.putExtra("Number of Tries", passValue);
+        callAnswer.putExtra("Option Selected", "Legacy");
+        startActivityForResult(callAnswer,REQUEST_CODE);
+        //else make a toast saying that the user is out of tries.
 
     }
 
     public void extended(View view){
         Log.d("Brenneman","extended selected");
         //if statement
+        int passValue = Integer.parseInt(numTries.toString());
+        callAnswer.putExtra("Number of Tries", passValue);
+        callAnswer.putExtra("Option Selected", "Legacy");
+        startActivityForResult(callAnswer,REQUEST_CODE);
+        //else make a toast saying that the user is out of tries.
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("Brenneman","Entering onActivityResult");
+        if(requestCode==REQUEST_CODE){
+            if(resultCode== Activity.RESULT_OK){
+                numberTries = data.getIntExtra("New Number of Tries", 0);
+                numTries.setText(Integer.toString(numberTries));
+            }
+            else{
+                Log.d("Brenneman","Something cancelled the call from the answer");
+            }
+        }
 
     }
 
