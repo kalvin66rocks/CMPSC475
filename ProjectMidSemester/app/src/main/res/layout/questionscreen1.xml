@@ -10,14 +10,13 @@
 
     <Button
         android:id="@+id/answerButton1"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button11"
         android:layout_below="@+id/textQUESTION"
-        android:layout_centerInParent="true"
         android:layout_marginEnd="44dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="41dp"
+        android:layout_toStartOf="@+id/textView3"
         android:onClick="standard"
         android:text="Standard "
         android:textAlignment="center" />
@@ -26,14 +25,15 @@
         android:id="@+id/answerButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/answerButton1"
         android:layout_below="@+id/answerButton1"
-        android:layout_centerInParent="true"
         android:layout_marginBottom="6dp"
         android:layout_marginTop="10dp"
         android:onClick="extended"
         android:text="Extended"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/answerButton1"
+        android:layout_alignStart="@+id/answerButton1" />
 
     <Button
         android:id="@+id/answerButton3"
@@ -72,7 +72,7 @@
 
     <Button
         android:id="@+id/answerButton4"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/answerButton1"
         android:layout_centerInParent="true"
@@ -113,11 +113,11 @@
         android:id="@+id/button11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goToMain"
-        android:text="Back"
         android:layout_below="@+id/answerButton3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="82dp" />
+        android:layout_marginTop="82dp"
+        android:onClick="goToMain"
+        android:text="Back" />
 
     <TextView
         android:id="@+id/textQUESTION"

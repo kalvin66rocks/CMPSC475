@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
         android:text="How did you do?"
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="14dp" />
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="82dp"
         android:onClick="tryAgain"
         android:text="Back to the Question!"
         android:layout_alignParentBottom="true"
@@ -32,6 +33,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="TextView"
+        android:textColor="@android:color/holo_blue_bright"
         android:textSize="16sp" />
 
     <TextView
@@ -41,5 +43,15 @@
         android:layout_below="@+id/textViewResult"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@android:color/holo_blue_bright" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="false"
+        app:srcCompat="@drawable/ancestral_recall" />
 </RelativeLayout>

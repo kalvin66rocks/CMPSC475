@@ -167,6 +167,7 @@ public class Question extends Activity {
             }
             else{
                 Log.d("Brenneman","Something cancelled the call from the answer");
+                Toast.makeText(this, "Please don't use the back arrow. Use the Back button on the screen", Toast.LENGTH_LONG).show();
             }
         }
 
