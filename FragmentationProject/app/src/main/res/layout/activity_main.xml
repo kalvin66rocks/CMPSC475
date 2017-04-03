@@ -7,6 +7,13 @@
     tools:context="com.kalvi_000.fragmentationproject.MainActivity">
 
     <fragment
+        android:id="@+id/showAnswerFragLayout"
+        android:name="com.kalvi_000.fragmentationproject.showAnswerFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <fragment
         android:id="@+id/fragmentButtons"
         android:name="com.kalvi_000.fragmentationproject.selectAnswerFrag"
         class="com.kalvi_000.fragmentationproject.selectAnswerFrag"

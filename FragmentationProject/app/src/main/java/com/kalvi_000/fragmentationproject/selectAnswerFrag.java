@@ -28,20 +28,20 @@ public class selectAnswerFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.select_answer_frag, container, false);
         answer1 = (CheckBox) view.findViewById(R.id.answer1);
-        answer1.setOnClickListener(answerSelectedlistener);
+        answer1.setOnClickListener(answerSelectedListener);
         answer2 = (CheckBox) view.findViewById(R.id.answer2);
-        answer2.setOnClickListener(answerSelectedlistener);
+        answer2.setOnClickListener(answerSelectedListener);
         answer3 = (CheckBox) view.findViewById(R.id.answer3);
-        answer3.setOnClickListener(answerSelectedlistener);
+        answer3.setOnClickListener(answerSelectedListener);
         answer4 = (CheckBox) view.findViewById(R.id.answer4);
-        answer4.setOnClickListener(answerSelectedlistener);
+        answer4.setOnClickListener(answerSelectedListener);
         answer5 = (CheckBox) view.findViewById(R.id.answer5);
-        answer5.setOnClickListener(answerSelectedlistener);
+        answer5.setOnClickListener(answerSelectedListener);
 
         return view;
     }
 
-    private View.OnClickListener answerSelectedlistener = new View.OnClickListener() {
+    private View.OnClickListener answerSelectedListener = new View.OnClickListener() {
         public void onClick(View view) {
             int theSelection = -1;
             switch (view.getId()) {
