@@ -14,34 +14,29 @@
         android:id="@+id/answer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox"
-        tools:text="Standard" />
+        android:text="Standard" />
 
     <CheckBox
         android:id="@+id/answer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox"
-        tools:text="Modern" />
+        android:text="Modern" />
 
     <CheckBox
         android:id="@+id/answer3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox"
-        tools:text="Legacy" />
+        android:text="Legacy" />
 
     <CheckBox
         android:id="@+id/answer4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox"
-        tools:text="Vintage" />
+        android:text="Vintage" />
 
     <CheckBox
         android:id="@+id/answer5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox"
-        tools:text="Extended" />
+        android:text="Extended" />
 </LinearLayout>
