@@ -47,22 +47,42 @@ public class selectAnswerFrag extends Fragment {
             switch (view.getId()) {
                 case R.id.answer1: //answer 1
                     //clear all other checkboxes
+                    answer2.setChecked(false);
+                    answer3.setChecked(false);
+                    answer4.setChecked(false);
+                    answer5.setChecked(false);
                     theSelection = 0;
                     break;
                 case R.id.answer2: //answer2
                     //clear all other checkboxes
+                    answer1.setChecked(false);
+                    answer3.setChecked(false);
+                    answer4.setChecked(false);
+                    answer5.setChecked(false);
                     theSelection = 1;
                     break;
                 case R.id.answer3: //answer3
                     //clear all other checkboxes
+                    answer1.setChecked(false);
+                    answer2.setChecked(false);
+                    answer4.setChecked(false);
+                    answer5.setChecked(false);
                     theSelection = 2;
                     break;
                 case R.id.answer4: //answer3
                     //clear all other checkboxes
+                    answer1.setChecked(false);
+                    answer2.setChecked(false);
+                    answer3.setChecked(false);
+                    answer5.setChecked(false);
                     theSelection = 3;
                     break;
                 case R.id.answer5: //answer3
                     //clear all other checkboxes
+                    answer1.setChecked(false);
+                    answer2.setChecked(false);
+                    answer3.setChecked(false);
+                    answer4.setChecked(false);
                     theSelection = 4;
                     break;
             }
