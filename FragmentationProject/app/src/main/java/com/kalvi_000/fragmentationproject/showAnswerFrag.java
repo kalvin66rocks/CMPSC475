@@ -22,14 +22,19 @@ public class showAnswerFrag extends Fragment {
     public void setAnswerText(int positiveNumber, TextView answerBox){
         switch(positiveNumber){
             case 0:
+                answerBox.setText(R.string.standard_answer);
                 break;
             case 1:
+                answerBox.setText(R.string.modern_answer);
                 break;
             case 2:
+                answerBox.setText(R.string.legacy_answer);
                 break;
             case 3:
+                answerBox.setText(R.string.vintage_answer);
                 break;
             case 4:
+                answerBox.setText(R.string.extended_answer);
                 break;
         }
     }
