@@ -1,5 +1,6 @@
 package com.kalvi_000.fragmentationproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,12 +21,15 @@ public class MainActivity extends AppCompatActivity implements selectAnswerFrag.
         showAnswerFrag showDaAnswer = (showAnswerFrag) getFragmentManager().findFragmentById(R.id.showAnswerFragLayout);
         TextView answerView = (TextView)findViewById(R.id.textView2);
 
-        if(showDaAnswer != null){
+        if(showDaAnswer != null && showDaAnswer.isInLayout()){
             Log.d("Brenneman","Fragment stuff");
             showDaAnswer.setAnswerText(positiveNumber, answerView);
         }
         else{
-            Toast.makeText(this, "Why am I here", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Why am I here", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, Answer.class);
+            intent.putExtra("TheSelection",positiveNumber);
+            startActivity(intent);
         }
 
 
