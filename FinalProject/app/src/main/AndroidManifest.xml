@@ -16,6 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".EnterMatches"
+            android:label="Enter matches activity">
+            <intent-filter>
+                <action android:name="com.kalvi_000.finalproject.OPEN_DYNAMIC_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

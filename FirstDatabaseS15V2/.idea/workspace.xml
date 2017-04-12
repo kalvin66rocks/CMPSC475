@@ -7,42 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="291b1fee-1917-4841-9c28-2fdb40606cd9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/drawable/planeswalker_symbol.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/gradle/wrapper/gradle-wrapper.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/.idea/gradle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/.idea/runConfigurations.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/proguard-rules.pro" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/androidTest/java/com/kalvi_000/finalproject/ExampleInstrumentedTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/AndroidManifest.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/activity_main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/values/colors.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/values/strings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/values/styles.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/test/java/com/kalvi_000/finalproject/ExampleUnitTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/gradle.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/gradle/wrapper/gradle-wrapper.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/gradlew" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/gradlew.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/settings.gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/EnterMatches.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/entermatch.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FirstDatabaseS15V2.iws" />
@@ -1787,7 +1757,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FinalProject" />
     <property name="device.picker.selection" value="Nexus_6P_API_22" />
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -1997,10 +1967,18 @@
       <option name="presentableId" value="Default" />
       <updated>1491920428594</updated>
     </task>
+    <task id="LOCAL-00001" summary="started final project">
+      <created>1491959835401</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1491959835401</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2042,6 +2020,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="started final project" />
+    <option name="LAST_COMMIT_MESSAGE" value="started final project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
