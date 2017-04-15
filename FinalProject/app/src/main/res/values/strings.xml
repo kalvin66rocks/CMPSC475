@@ -3,4 +3,13 @@
     <string name="messageForShortCut">Test Message</string>
     <string name="str_shortcut_two">Shortcut 2</string>
     <string name="str_shortcut_two_desc">Shortcut using code</string>
+    <string-array name="Results">
+        <item>2-0  </item>
+        <item>2-1  </item>
+        <item>1-2  </item>
+        <item>0-2  </item>
+        <item>0-1-1</item>
+        <item>1-0-1</item>
+        <item>1-1-1</item>
+    </string-array>
 </resources>

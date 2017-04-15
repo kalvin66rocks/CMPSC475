@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 /**
@@ -20,6 +22,7 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
     Button commitData;
     RadioButton casualRB,testingRB,competitiveRB;
     EditText name,opponent,deckPlayed,opponentDeck;
+    Spinner resultSpinner;
     private int playLevel = 0;
 
     public static final String ACTION = BuildConfig.APPLICATION_ID + ".OPEN_DYNAMIC_SHORTCUT";
@@ -47,6 +50,13 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
         deckPlayed = (EditText) findViewById(R.id.deckPlayed);
         opponent = (EditText) findViewById(R.id.opponent);
         opponentDeck = (EditText) findViewById(R.id.opponentDeck);
+
+        //connect the result spinner
+        //also populate it with its options
+        resultSpinner = (Spinner) findViewById(R.id.ResultSpinner);
+        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
+        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        resultSpinner.setAdapter(resultAdapter);
     }
 
     public void commitResults(View view){
@@ -55,7 +65,7 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
             Toast.makeText(this, "Please select a level of play", Toast.LENGTH_SHORT).show();
             incomplete = true;
         }
-        //will display error message on no name entered
+        //will display error messages if any of the fields have been left empty
         String nameString = name.getText().toString();
         if(TextUtils.isEmpty(nameString)){
             name.setError("Name cannot be empty");
@@ -76,11 +86,17 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
             opponentDeck.setError("Opponent's Deck cannot be empty");
             incomplete = true;
         }
+        if(!casualRB.isChecked() && !testingRB.isChecked() && !competitiveRB.isChecked()){
+            incomplete = true;
+        }
 
 
         //after all data is verified we will enter the result into the database
         if(!incomplete){
-            Toast.makeText(this, "valid options, would proceed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "valid options, push entry to database", Toast.LENGTH_SHORT).show();
+            clearFields();
+        }else if(incomplete){
+            Toast.makeText(this, "Something is invalid, would not proceed", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -89,20 +105,17 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
         switch (buttonView.getId()) {
             case R.id.casualRadioButton:
                 if(isChecked){
-                    Toast.makeText(this, "Casual radio button value set", Toast.LENGTH_SHORT).show();
                     playLevel=1;
                 }
                 break;
             case R.id.testingRadioButton:
                 if(isChecked){
-                    Toast.makeText(this, "Testing radio button value set", Toast.LENGTH_SHORT).show();
                     playLevel=2;
                 }
                 break;
             case R.id.competitiveRadioButton:
                 if(isChecked){
-                    Toast.makeText(this, "Competitive radio button value set", Toast.LENGTH_SHORT).show();
-                    playLevel=2;
+                    playLevel=3;
                 }
                 break;
 
@@ -125,7 +138,13 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
         testingRB.setChecked(false);
         competitiveRB.setChecked(false);
 
-        //more to come on clearing the text fields
+        //clear the text field
+        name.setText("");
+        deckPlayed.setText("");
+        opponent.setText("");
+        opponentDeck.setText("");
+
+        //need to clear the selection on the spinner
     }
 
 
