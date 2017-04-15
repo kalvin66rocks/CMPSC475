@@ -2,12 +2,107 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView"
+    <RadioGroup
+        android:id="@+id/RadioButtonGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="89dp"
-        android:text="This will be built eventually, currently just used for showing that the shortcut goes to a valid page" />
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/casualRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Casual" />
+
+        <RadioButton
+            android:id="@+id/testingRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Testing" />
+
+        <RadioButton
+            android:id="@+id/competitiveRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Competitive" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/RadioButtonGroup"
+        android:layout_below="@+id/RadioButtonGroup"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/deckPlayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/name"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Deck Played"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/opponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/deckPlayed"
+        android:layout_below="@+id/deckPlayed"
+        android:layout_marginTop="51dp"
+        android:ems="10"
+        android:hint="Opponent"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/opponentDeck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/opponent"
+        android:layout_below="@+id/opponent"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:hint="Opponent's Deck"
+        android:inputType="textPersonName" />
+
+    <Spinner
+        android:id="@+id/ResultSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/opponentDeck"
+        android:layout_alignStart="@+id/opponentDeck"
+        android:layout_below="@+id/opponentDeck"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="48dp" />
+
+    <Button
+        android:id="@+id/BackButtonEnterMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/opponentDeck"
+        android:layout_marginBottom="46dp"
+        android:onClick="goToMain"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/EnterButtonEnterConent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/BackButtonEnterMatch"
+        android:layout_alignEnd="@+id/opponentDeck"
+        android:onClick="commitResults"
+        android:text="Enter" />
 </RelativeLayout>
