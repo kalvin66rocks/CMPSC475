@@ -1,6 +1,9 @@
 package com.kalvi_000.finalproject;
 
 import android.app.Activity;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,7 +19,11 @@ import android.widget.Toast;
  * Created by kalvi_000 on 4/11/2017.
  */
 
-public class EnterMatches extends Activity implements View.OnLongClickListener,CompoundButton.OnCheckedChangeListener
+public class EnterMatches
+        extends Activity
+        implements View.OnLongClickListener,
+        CompoundButton.OnCheckedChangeListener,
+        DatabaseConstants
 {
 
     Button commitData;
@@ -25,7 +32,14 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
     Spinner resultSpinner;
     private int playLevel = 0;
 
-    public static final String ACTION = BuildConfig.APPLICATION_ID + ".OPEN_DYNAMIC_SHORTCUT";
+    //database stuff
+    SQLiteDatabase db;
+    Cursor cursor;
+    private EventsData events;
+
+    //where did this come from?
+    //remnants from doing outside app shortcuts?
+    //public static final String ACTION = BuildConfig.APPLICATION_ID + ".OPEN_DYNAMIC_SHORTCUT";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +71,12 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
         ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
         resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         resultSpinner.setAdapter(resultAdapter);
+
+        //database stuff
+        events = new EventsData(this);
+        db = events.getWritableDatabase(); //open the database
+
+
     }
 
     public void commitResults(View view){
@@ -94,6 +114,14 @@ public class EnterMatches extends Activity implements View.OnLongClickListener,C
         //after all data is verified we will enter the result into the database
         if(!incomplete){
             Toast.makeText(this, "valid options, push entry to database", Toast.LENGTH_SHORT).show();
+            //we have to build the items to push to the database here
+            ContentValues someValues = new ContentValues(); // this is a single row in the database.
+            //no idea how these will behave, will have to comment out advance features and run at ap level 21 for now
+            someValues.put("name", name.getText().toString());
+            someValues.put("deckPlayed", deckPlayed.getText().toString());
+            someValues.put("opponent", opponent.getText().toString());
+            someValues.put("name", name.getText().toString());
+            db.insert(DB_TableName, null, someValues);
             clearFields();
         }else if(incomplete){
             Toast.makeText(this, "Something is invalid, would not proceed", Toast.LENGTH_SHORT).show();
