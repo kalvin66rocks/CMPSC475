@@ -20,8 +20,6 @@ import java.util.Collections;
 
 public class MainActivity extends ListActivity implements  DatabaseConstants{
 
-    //stuff that we are going to use temporarily seeing if our database functions
-    // using logcat
     //database stuff
     SQLiteDatabase db;
     Cursor cursor;
@@ -94,9 +92,6 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                     Log.d("Query*****", dbOpponentDeck);
                     dbResult = cursor.getString(6);
                     Log.d("Query*****", dbResult);
-
-                    //will try launching a new activity from here, I think it should be a list activity
-
                 }
                 break;
             case 2:
