@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b6b1e63-1eb8-414f-9fc9-0402fb3eb30f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/ViewMatches.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/ViewMatches.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/view_matches.xml" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/view_matches.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FirstDatabaseS15V2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../FirstDatabaseS15V2/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SciFiFanClub41.iws" />
     <ignored path=".idea/workspace.xml" />

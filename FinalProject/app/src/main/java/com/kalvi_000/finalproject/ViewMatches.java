@@ -32,6 +32,13 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
         events = new EventsData(this);
         db = events.getWritableDatabase(); //open the database
         ArrayList<String> dbStrings = new ArrayList<>();
+        ArrayList<String> dbIDList = new ArrayList<>();
+        ArrayList<String> dbPlayLevelList = new ArrayList<>();
+        ArrayList<String> dbNameList = new ArrayList<>();
+        ArrayList<String> dbDeckPlayedList = new ArrayList<>();
+        ArrayList<String> dbOpponentList = new ArrayList<>();
+        ArrayList<String> dbOpponentDeckList = new ArrayList<>();
+        ArrayList<String> dbResultList = new ArrayList<>();
 
         cursor = db.query(DB_TableName, null, null, null, null, null, null);
         while (cursor.moveToNext()) {  //move to next row, if possible
@@ -40,12 +47,19 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
             // it would make the listener for onItemSelected a little more ridiculous, but would prevent it from looking like shit
             String tempFill;
             dbID = cursor.getInt(0);
+            dbIDList.add(Integer.toString(dbID));
             dbPlayLevel = cursor.getInt(1);
+            dbPlayLevelList.add(Integer.toString(dbPlayLevel));
             dbName = cursor.getString(2);
+            dbNameList.add(dbName);
             dbDeckPlayed = cursor.getString(3);
+            dbDeckPlayedList.add(dbDeckPlayed);
             dbOpponent = cursor.getString(4);
+            dbOpponentList.add(dbOpponent);
             dbOpponentDeck = cursor.getString(5);
+            dbOpponentDeckList.add(dbOpponentDeck);
             dbResult = cursor.getString(6);
+            dbResultList.add(dbResult);
             tempFill = "ID: " + dbID + " Play Level: " + dbPlayLevel + " Name: " + dbName + " Deck: " + dbDeckPlayed + " Opponent: " + dbOpponent + " Opponent's Deck " + dbOpponentDeck + " Result: " + dbResult;
             dbStrings.add(tempFill);
         }
