@@ -48,7 +48,7 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
             dbResult = cursor.getString(6);
 
             //need to clean up this string, currently to long.
-            tempFill = dbPlayLevel + " " + dbDeckPlayed + " vs " + dbOpponent + " playing " + dbOpponentDeck + " Result: " + dbResult;
+            tempFill = dbPlayLevel + ": " + dbName +" (" + dbDeckPlayed + ") vs " + dbOpponent + " (" + dbOpponentDeck + ") Result: " + dbResult;
             dbStrings.add(tempFill);
         }
         setListAdapter(new ArrayAdapter<>(this, R.layout.view_matches, R.id.databaseEntries, dbStrings));
