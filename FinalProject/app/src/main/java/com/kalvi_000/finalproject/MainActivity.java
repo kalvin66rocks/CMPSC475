@@ -24,8 +24,8 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     SQLiteDatabase db;
     Cursor cursor;
     private EventsData events;
-    int dbID, dbPlayLevel;
-    String dbName, dbDeckPlayed, dbOpponent, dbOpponentDeck, dbResult;
+    int dbID;
+    String dbName, dbDeckPlayed, dbOpponent, dbOpponentDeck, dbResult, dbPlayLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,11 +79,10 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 //no idea what the fuck is going on here
                 //start the cursor at the beginning of the table
                 while (cursor.moveToNext()) {  //move to next row, if possible
-                    Toast.makeText(this, "Made it inside while loop", Toast.LENGTH_SHORT).show();
                     dbID = cursor.getInt(0);
                     Log.d("Query***** ID:", Integer.toString(dbID));
-                    dbPlayLevel = cursor.getInt(1);
-                    Log.d("Query***** PlayLevel:", Integer.toString(dbPlayLevel));
+                    dbPlayLevel = cursor.getString(1);
+                    Log.d("Query***** PlayLevel:", dbPlayLevel);
                     dbName =cursor.getString(2);
                     Log.d("Query*****", dbName);
                     dbDeckPlayed = cursor.getString(3);

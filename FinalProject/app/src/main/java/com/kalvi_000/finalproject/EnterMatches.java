@@ -30,7 +30,7 @@ public class EnterMatches
     RadioButton casualRB,testingRB,competitiveRB;
     EditText name,opponent,deckPlayed,opponentDeck;
     Spinner resultSpinner;
-    private int playLevel = 0;
+    private String playLevel = "";
 
     //database stuff
     SQLiteDatabase db;
@@ -81,7 +81,7 @@ public class EnterMatches
 
     public void commitResults(View view){
         boolean incomplete = false;
-        if (playLevel == 0){
+        if (playLevel == ""){
             Toast.makeText(this, "Please select a level of play", Toast.LENGTH_SHORT).show();
             incomplete = true;
         }
@@ -135,17 +135,17 @@ public class EnterMatches
         switch (buttonView.getId()) {
             case R.id.casualRadioButton:
                 if(isChecked){
-                    playLevel=1;
+                    playLevel="casual";
                 }
                 break;
             case R.id.testingRadioButton:
                 if(isChecked){
-                    playLevel=2;
+                    playLevel="testing";
                 }
                 break;
             case R.id.competitiveRadioButton:
                 if(isChecked){
-                    playLevel=3;
+                    playLevel="competitive";
                 }
                 break;
 
@@ -173,6 +173,8 @@ public class EnterMatches
         deckPlayed.setText("");
         opponent.setText("");
         opponentDeck.setText("");
+
+        playLevel = "";
 
         //need to clear the selection on the spinner
     }
