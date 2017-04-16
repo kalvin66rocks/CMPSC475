@@ -94,6 +94,9 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                     Log.d("Query*****", dbOpponentDeck);
                     dbResult = cursor.getString(6);
                     Log.d("Query*****", dbResult);
+
+                    //will try launching a new activity from here, I think it should be a list activity
+
                 }
                 break;
             case 2:

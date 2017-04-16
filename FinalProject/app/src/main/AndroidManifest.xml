@@ -24,6 +24,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".ViewMatches">
+            <!-- will have to put shortcut stuff here  -->
+        </activity>
     </application>
 
 </manifest>
