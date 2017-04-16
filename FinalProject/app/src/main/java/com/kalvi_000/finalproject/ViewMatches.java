@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -30,24 +31,25 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
         //database stuff
         events = new EventsData(this);
         db = events.getWritableDatabase(); //open the database
-        Vector<String> dataBaseVectors= new Vector<>();
+        ArrayList<String> dbStrings = new ArrayList<>();
 
         cursor = db.query(DB_TableName, null, null, null, null, null, null);
         while (cursor.moveToNext()) {  //move to next row, if possible
+            //could use this to loop through the database filling an array list for each of elements we want, using a property of strings to make them all a standard length,
+            //from there it would be easily to keep tht columns aligned
+            // it would make the listener for onItemSelected a little more ridiculous, but would prevent it from looking like shit
             String tempFill;
             dbID = cursor.getInt(0);
             dbPlayLevel = cursor.getInt(1);
-            dbName =cursor.getString(2);
+            dbName = cursor.getString(2);
             dbDeckPlayed = cursor.getString(3);
             dbOpponent = cursor.getString(4);
             dbOpponentDeck = cursor.getString(5);
             dbResult = cursor.getString(6);
-            tempFill = dbID + " " + dbPlayLevel + " " + dbName + " " + dbDeckPlayed + " " + dbOpponent  + " " + dbOpponentDeck + " " + dbResult;
-            dataBaseVectors.addElement(tempFill);
+            tempFill = "ID: " + dbID + " Play Level: " + dbPlayLevel + " Name: " + dbName + " Deck: " + dbDeckPlayed + " Opponent: " + dbOpponent + " Opponent's Deck " + dbOpponentDeck + " Result: " + dbResult;
+            dbStrings.add(tempFill);
         }
-
-
-
+        setListAdapter(new ArrayAdapter<>(this, R.layout.view_matches, R.id.databaseEntries, dbStrings));
 
     }
 }

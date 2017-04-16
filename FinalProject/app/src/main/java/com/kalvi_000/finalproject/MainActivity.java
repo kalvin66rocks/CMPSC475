@@ -33,6 +33,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card"};
         setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
 
+        //used for creating shortcuts from the app icon
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
 
         ShortcutInfo webShortcut = new ShortcutInfo.Builder(this, "shortcut_web")
@@ -56,6 +57,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 .build();
 
         shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcut));
+        //end of shortcut stuff
 
         //database stuff
         events = new EventsData(this);
@@ -93,6 +95,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                     dbResult = cursor.getString(6);
                     Log.d("Query*****", dbResult);
                 }
+                startActivity(new Intent(MainActivity.this, ViewMatches.class));
                 break;
             case 2:
                 //startActivity(new Intent(MainActivity.this, Question.class));

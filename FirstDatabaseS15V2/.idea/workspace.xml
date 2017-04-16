@@ -13,6 +13,8 @@
     <list default="true" id="291b1fee-1917-4841-9c28-2fdb40606cd9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/ViewMatches.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/ViewMatches.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/view_matches.xml" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/view_matches.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../SciFiFanClub41/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../SciFiFanClub41/.idea/workspace.xml" />
     </list>
     <ignored path="FirstDatabaseS15V2.iws" />
