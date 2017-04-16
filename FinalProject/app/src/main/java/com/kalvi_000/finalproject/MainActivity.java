@@ -4,18 +4,30 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Icon;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends ListActivity implements  DatabaseConstants{
+
+    //stuff that we are going to use temporarily seeing if our database functions
+    // using logcat
+    //database stuff
+    SQLiteDatabase db;
+    Cursor cursor;
+    private EventsData events;
+    int dbID, dbPlayLevel;
+    String dbName, dbDeckPlayed, dbOpponent, dbOpponentDeck, dbResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +58,10 @@ public class MainActivity extends ListActivity {
                 .build();
 
         shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcut));
+
+        //database stuff
+        events = new EventsData(this);
+        db = events.getWritableDatabase(); //open the database
     }
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -54,7 +70,31 @@ public class MainActivity extends ListActivity {
                 startActivity(new Intent(MainActivity.this, EnterMatches.class));
                 break;
             case 1:
+                Toast.makeText(this, "View Matches", Toast.LENGTH_SHORT).show();
                 //startActivity(new Intent(MainActivity.this, HowToPlay.class));
+                //this will be view match history.
+                //will be temporarily used to debug db via logcat
+                cursor = db.query(DB_TableName, null, null, null, null, null, null);
+                //cursor.moveToFirst();
+                //no idea what the fuck is going on here
+                //start the cursor at the beginning of the table
+                while (cursor.moveToNext()) {  //move to next row, if possible
+                    Toast.makeText(this, "Made it inside while loop", Toast.LENGTH_SHORT).show();
+                    dbID = cursor.getInt(0);
+                    Log.d("Query***** ID:", Integer.toString(dbID));
+                    dbPlayLevel = cursor.getInt(1);
+                    Log.d("Query***** PlayLevel:", Integer.toString(dbPlayLevel));
+                    dbName =cursor.getString(2);
+                    Log.d("Query*****", dbName);
+                    dbDeckPlayed = cursor.getString(3);
+                    Log.d("Query*****", dbDeckPlayed);
+                    dbOpponent = cursor.getString(4);
+                    Log.d("Query*****", dbOpponent);
+                    dbOpponentDeck = cursor.getString(5);
+                    Log.d("Query*****", dbOpponentDeck);
+                    dbResult = cursor.getString(6);
+                    Log.d("Query*****", dbResult);
+                }
                 break;
             case 2:
                 //startActivity(new Intent(MainActivity.this, Question.class));

@@ -21,7 +21,7 @@ public class EventsData extends SQLiteOpenHelper implements DatabaseConstants {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(" CREATE TABLE " + DB_TableName + "  (" + _ID +
-                " INTEGER PRIMARY KEY AUTOINCREMENT, stuname TEXT NOT NULL, score INTEGER);");
+                " INTEGER PRIMARY KEY AUTOINCREMENT, playlevel Integer, name TEXT NOT NULL, deckplayed TEXT NOT NULL, opponent TEXT NOT NULL, opponentdeck TEXT NOT NULL, result TEXT NOT NULL);");
     }
 
     @Override

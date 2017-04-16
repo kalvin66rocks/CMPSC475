@@ -117,10 +117,12 @@ public class EnterMatches
             //we have to build the items to push to the database here
             ContentValues someValues = new ContentValues(); // this is a single row in the database.
             //no idea how these will behave, will have to comment out advance features and run at ap level 21 for now
+            someValues.put("playlevel", playLevel);
             someValues.put("name", name.getText().toString());
-            someValues.put("deckPlayed", deckPlayed.getText().toString());
+            someValues.put("deckplayed", deckPlayed.getText().toString());
             someValues.put("opponent", opponent.getText().toString());
-            someValues.put("name", name.getText().toString());
+            someValues.put("opponentdeck", opponentDeck.getText().toString());
+            someValues.put("result", resultSpinner.getSelectedItem().toString());
             db.insert(DB_TableName, null, someValues);
             clearFields();
         }else if(incomplete){
