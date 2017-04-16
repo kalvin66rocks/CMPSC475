@@ -37,9 +37,9 @@ public class EnterMatches
     Cursor cursor;
     private EventsData events;
 
-    //where did this come from?
-    //remnants from doing outside app shortcuts?
-    //public static final String ACTION = BuildConfig.APPLICATION_ID + ".OPEN_DYNAMIC_SHORTCUT";
+    //used for creating the relationship between this activity
+    //and the shortcut that is created from the home screen.
+    public static final String ACTION = BuildConfig.APPLICATION_ID + ".OPEN_DYNAMIC_SHORTCUT";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
