@@ -62,6 +62,7 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
     }
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
+        /*
         //can use position+1 as the index of the database item that we want to view/edit
         //seems like it would actually be a good place to implement fragments possibly
         //lets  make a toast to test access of the element that we want.
@@ -76,9 +77,9 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
         dbOpponentDeck = cursor.getString(5);
         dbResult = cursor.getString(6);
         tempFill = dbPlayLevel + ": " + dbName +" (" + dbDeckPlayed + ") vs " + dbOpponent + " (" + dbOpponentDeck + ") Result: " + dbResult;
-        Toast.makeText(this, tempFill, Toast.LENGTH_SHORT).show();
 
         //need to create handling of the non existent fragment and packaging the data to be sent to the other intent.
+        */
         callUpdateView.putExtra("Database Position", position+1);
         startActivity(callUpdateView);
     }

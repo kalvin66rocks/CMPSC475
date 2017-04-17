@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <RadioGroup
-        android:id="@+id/RadioButtonGroup"
+        android:id="@+id/RadioButtonGroupEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -37,8 +37,8 @@
         android:id="@+id/nameEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/RadioButtonGroup"
-        android:layout_below="@+id/RadioButtonGroup"
+        android:layout_alignStart="@+id/RadioButtonGroupEdit"
+        android:layout_below="@+id/RadioButtonGroupEdit"
         android:layout_marginTop="39dp"
         android:ems="10"
         android:hint="Name"
