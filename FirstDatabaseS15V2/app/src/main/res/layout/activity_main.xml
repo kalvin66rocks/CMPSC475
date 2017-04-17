@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:text="Add 2 Records"
+        android:layout_marginBottom="22dp" />
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnAdd"
+        android:layout_below="@+id/btnAdd"
+        android:text="Delete"
+        android:layout_marginBottom="22dp" />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Close Database"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btnQueryOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Query One"
+        android:layout_below="@+id/btnUpdate"
+        android:layout_alignLeft="@+id/btnDelete"
+        android:layout_alignStart="@+id/btnDelete"
+        android:layout_marginBottom="22dp" />
+
+    <Button
+        android:id="@+id/btnQuery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Query All"
+        android:layout_below="@+id/btnQueryOne"
+        android:layout_alignLeft="@+id/btnUpdate"
+        android:layout_alignStart="@+id/btnUpdate" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:layout_below="@+id/btnDelete"
+        android:layout_alignLeft="@+id/btnDelete"
+        android:layout_alignStart="@+id/btnDelete"
+        android:layout_marginBottom="22dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextDelete"
+        android:layout_alignTop="@+id/btnDelete"
+        android:layout_toRightOf="@+id/btnQueryOne"
+        android:layout_toEndOf="@+id/btnQueryOne" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextQOne"
+        android:layout_alignTop="@+id/btnQueryOne"
+        android:layout_alignRight="@+id/editTextDelete"
+        android:layout_alignEnd="@+id/editTextDelete" />
+
+</RelativeLayout>

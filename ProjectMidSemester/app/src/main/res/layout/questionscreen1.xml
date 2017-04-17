@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutSSS"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/holoRed"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/answerButton1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textQUESTION"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="41dp"
+        android:layout_toStartOf="@+id/textView3"
+        android:onClick="standard"
+        android:text="Standard "
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/answerButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerButton1"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="10dp"
+        android:onClick="extended"
+        android:text="Extended"
+        android:textAlignment="center"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/answerButton1"
+        android:layout_alignStart="@+id/answerButton1" />
+
+    <Button
+        android:id="@+id/answerButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/answerButton1"
+        android:layout_alignRight="@+id/answerButton2"
+        android:layout_below="@+id/answerButton2"
+        android:layout_centerInParent="true"
+        android:onClick="vintage"
+        android:text="Vintage"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button11"
+        android:layout_marginStart="13dp"
+        android:layout_toRightOf="@+id/button11"
+        android:background="@android:color/background_light"
+        android:text="@string/guesses_remaining"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:id="@+id/remainingTries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_below="@+id/textView3"
+        android:background="@android:color/background_light"
+        android:text="3"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark" />
+
+    <Button
+        android:id="@+id/answerButton4"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/answerButton1"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/answerButton1"
+        android:onClick="modern"
+        android:text="Modern  "
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/answerbutton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/answerButton4"
+        android:layout_alignRight="@+id/answerButton4"
+        android:layout_alignTop="@+id/answerButton2"
+        android:layout_below="@+id/answerButton4"
+        android:layout_centerInParent="true"
+        android:onClick="limited"
+        android:text="Limited"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/answerButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/answerButton4"
+        android:layout_alignRight="@+id/answerbutton5"
+        android:layout_alignTop="@+id/answerButton3"
+        android:layout_below="@+id/answerbutton5"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:onClick="legacy"
+        android:text="Legacy"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answerButton3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="82dp"
+        android:onClick="goToMain"
+        android:text="Back" />
+
+    <TextView
+        android:id="@+id/textQUESTION"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:background="@android:color/background_light"
+        android:text="Magic has been around since 1993. What is the oldest sanctioned magic format that is still played to this day?"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+</RelativeLayout>

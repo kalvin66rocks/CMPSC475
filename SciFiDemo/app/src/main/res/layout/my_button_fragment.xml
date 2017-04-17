@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+        android:text="*\nStar Trek\nNext Generation\n*"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button1"
+        android:textSize="14sp"/>
+
+    <Button
+        android:text="**\nStar Trek\nVoyager\n**"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:textSize="14sp"/>
+
+    <Button
+        android:text="***\nStar Trek\nDeep Space 9\n***"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:textSize="14sp"/>
+</LinearLayout>

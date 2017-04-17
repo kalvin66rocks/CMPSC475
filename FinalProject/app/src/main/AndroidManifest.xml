@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kalvi_000.finalproject">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EnterMatches"
+            android:label="Enter matches activity">
+            <intent-filter>
+                <action android:name="com.kalvi_000.finalproject.OPEN_DYNAMIC_SHORTCUT"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ViewMatches">
+            <!-- will have to put shortcut stuff here  -->
+        </activity>
+        <activity android:name=".UpdateViewMatches">
+            <!-- will not be putting shortcut stuff here as we do not want to be able to get here from externally -->
+        </activity>
+    </application>
+
+</manifest>

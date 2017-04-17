@@ -1,5 +1,6 @@
 package com.kalvi_000.intenttesting;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,13 +20,15 @@ public class SecondaryActivity extends AppCompatActivity {
     Intent callMain;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sec);
+
         secondaryTextView = (TextView) findViewById(R.id.textView2);
         secondaryNum = getIntent().getIntExtra("Value from Main",0);
         secondaryTextView.setText(Integer.toString(secondaryNum));
-        callMain = new Intent(new Intent(this,MainActivity.class));
+        //callMain = new Intent(new Intent(this,MainActivity.class));
+        callMain = new Intent();    //EMPTY INTENT
     }
     public void OnClickCallMain(View v){
         Log.d("Brenneman","Entering OnClickCallMain");
