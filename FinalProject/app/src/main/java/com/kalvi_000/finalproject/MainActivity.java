@@ -114,6 +114,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcut));
     }
 
+    //first delete confirmation
     public void deleteDialog(){
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
@@ -130,6 +131,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
 
     }
 
+    //second and final deletion confirmation
     public void confirmDeleteDialog(){
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
