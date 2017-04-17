@@ -107,4 +107,12 @@
         android:layout_alignEnd="@+id/opponentDeckEdit"
         android:onClick="updateClick"
         android:text="Update" />
+
+    <Button
+        android:id="@+id/deleteEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/UpdateButton"
+        android:text="Delete" />
 </RelativeLayout>
