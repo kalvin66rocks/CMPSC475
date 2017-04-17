@@ -90,23 +90,26 @@ public class UpdateViewMatches
             incomplete = true;
         }
         if(!incomplete) {
-            confirmationDialog();
+            //I believe we are going to remove this and change the confirmation dialog to the delete entry option
+            //confirmationDialog();
+            updateInformation();
         }
     }
 
     public void confirmationDialog(){
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
-                .setTitle("Confirmation")
-                .setMessage("Update the match?")
+                .setTitle("Confirm Deletion")
+                .setMessage("Delete this match?")
                 .setIcon(R.drawable.ic_warning_black_24dp)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        updateInformation();
+                        //updateInformation();
+                        deleteDBEntry();
                     }})
-                .setNegativeButton("No", null).show();
+                .setNegativeButton("Cancel", null).show();
 
     }
 
@@ -234,4 +237,15 @@ public class UpdateViewMatches
         setResultSpinner(dbResult);
     }
 
+    public void deleteDBEntry(){
+        //if I did this wrong it will delete the whole database
+        db.delete(DB_TableName,"_id=" + Integer.toString(positionInDB), null);
+        setResult(Activity.RESULT_OK, returnToList);
+        finish();
+
+    }
+
+    public void deleteMatch(View view){
+        confirmationDialog();
+    }
 }
