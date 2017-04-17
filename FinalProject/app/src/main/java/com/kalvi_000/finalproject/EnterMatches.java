@@ -60,10 +60,10 @@ public class EnterMatches
         competitiveRB.setOnCheckedChangeListener(this);
 
         //connect the edit Texts
-        name = (EditText) findViewById(R.id.name);
-        deckPlayed = (EditText) findViewById(R.id.deckPlayed);
-        opponent = (EditText) findViewById(R.id.opponent);
-        opponentDeck = (EditText) findViewById(R.id.opponentDeck);
+        name = (EditText) findViewById(R.id.nameEdit);
+        deckPlayed = (EditText) findViewById(R.id.deckPlayedEdit);
+        opponent = (EditText) findViewById(R.id.opponentEdit);
+        opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
 
         //connect the result spinner
         //also populate it with its options
@@ -113,7 +113,7 @@ public class EnterMatches
 
         //after all data is verified we will enter the result into the database
         if(!incomplete){
-            Toast.makeText(this, "valid options, push entry to database", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "valid options, push entry to database", Toast.LENGTH_SHORT).show();
             //we have to build the items to push to the database here
             ContentValues someValues = new ContentValues(); // this is a single row in the database.
             //no idea how these will behave, will have to comment out advance features and run at ap level 21 for now
@@ -135,17 +135,17 @@ public class EnterMatches
         switch (buttonView.getId()) {
             case R.id.casualRadioButton:
                 if(isChecked){
-                    playLevel="casual";
+                    playLevel="Casual";
                 }
                 break;
             case R.id.testingRadioButton:
                 if(isChecked){
-                    playLevel="testing";
+                    playLevel="Testing";
                 }
                 break;
             case R.id.competitiveRadioButton:
                 if(isChecked){
-                    playLevel="competitive";
+                    playLevel="Competitive";
                 }
                 break;
 

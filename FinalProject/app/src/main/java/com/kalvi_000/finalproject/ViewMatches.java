@@ -1,11 +1,14 @@
 package com.kalvi_000.finalproject;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -23,6 +26,8 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
     private EventsData events;
     int dbID;
     String dbName, dbDeckPlayed, dbOpponent, dbOpponentDeck, dbResult, dbPlayLevel;
+
+    Intent callUpdateView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,5 +58,29 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
         }
         setListAdapter(new ArrayAdapter<>(this, R.layout.view_matches, R.id.databaseEntries, dbStrings));
 
+        callUpdateView = new Intent(this, UpdateViewMatches.class);
     }
+
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        //can use position+1 as the index of the database item that we want to view/edit
+        //seems like it would actually be a good place to implement fragments possibly
+        //lets  make a toast to test access of the element that we want.
+        cursor = db.query(DB_TableName, null, "_id=" + Integer.toString(position+1), null, null, null, null);
+        cursor.moveToFirst(); // initially set at 0 or nothing
+        String tempFill;
+        dbID = cursor.getInt(0);
+        dbPlayLevel = cursor.getString(1);
+        dbName = cursor.getString(2);
+        dbDeckPlayed = cursor.getString(3);
+        dbOpponent = cursor.getString(4);
+        dbOpponentDeck = cursor.getString(5);
+        dbResult = cursor.getString(6);
+        tempFill = dbPlayLevel + ": " + dbName +" (" + dbDeckPlayed + ") vs " + dbOpponent + " (" + dbOpponentDeck + ") Result: " + dbResult;
+        Toast.makeText(this, tempFill, Toast.LENGTH_SHORT).show();
+
+        //need to create handling of the non existent fragment and packaging the data to be sent to the other intent.
+        callUpdateView.putExtra("Database Position", position+1);
+        startActivity(callUpdateView);
+    }
+
 }

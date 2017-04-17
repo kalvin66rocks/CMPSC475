@@ -27,6 +27,9 @@
         <activity android:name=".ViewMatches">
             <!-- will have to put shortcut stuff here  -->
         </activity>
+        <activity android:name=".UpdateViewMatches">
+            <!-- will not be putting shortcut stuff here as we do not want to be able to get here from externally -->
+        </activity>
     </application>
 
 </manifest>
