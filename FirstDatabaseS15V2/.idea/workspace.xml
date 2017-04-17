@@ -11,17 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="291b1fee-1917-4841-9c28-2fdb40606cd9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/drawable-hdpi/ic_warning_black_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/drawable-mdpi/ic_warning_black_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/drawable-xhdpi/ic_warning_black_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/drawable-xxhdpi/ic_warning_black_24dp.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/drawable-xxxhdpi/ic_warning_black_24dp.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/UpdateViewMatches.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/UpdateViewMatches.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/ViewMatches.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/ViewMatches.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/entermatch.xml" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/entermatch.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/update_view_match.xml" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/layout/update_view_match.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FirstDatabaseS15V2.iws" />
     <ignored path=".idea/workspace.xml" />

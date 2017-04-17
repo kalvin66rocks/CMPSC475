@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -40,6 +41,8 @@ public class UpdateViewMatches
     Spinner resultSpinner;
     private String playLevel = "";
 
+    Intent returnToList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,48 +51,11 @@ public class UpdateViewMatches
         //get the vale of the position in the database that we want to access.
         positionInDB = getIntent().getIntExtra("Database Position",0);
 
-        //connect all the edit texts and buttons
-        casualRB = (RadioButton) findViewById(R.id.casualEditRadioButton);
-        casualRB.setOnCheckedChangeListener(this);
-        testingRB = (RadioButton) findViewById(R.id.testingEditRadioButton);
-        testingRB.setOnCheckedChangeListener(this);
-        competitiveRB = (RadioButton) findViewById(R.id.competitiveEditRadioButton);
-        competitiveRB.setOnCheckedChangeListener(this);
-        //connect edit texts
-        name = (EditText) findViewById(R.id.nameEdit);
-        deckPlayed = (EditText) findViewById(R.id.deckPlayedEdit);
-        opponent = (EditText) findViewById(R.id.opponentEdit);
-        opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
-        //connect the spinner
-        resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
+        inflateObjects();
 
-        //database stuff
-        events = new EventsData(this);
-        db = events.getWritableDatabase(); //open the database
+        doDBStuff();
 
-        //grab stuff from the database and populate all of our fields
-        cursor = db.query(DB_TableName, null, "_id=" + Integer.toString(positionInDB), null, null, null, null);
-        cursor.moveToFirst(); // initially set at 0 or nothing
-        dbID = cursor.getInt(0);
-        dbPlayLevel = cursor.getString(1);
-        //this needs handled special based off of a switch statement, will be making a function
-        setPlayLevel(dbPlayLevel);
-        dbName = cursor.getString(2);
-        name.setText(dbName);
-        dbDeckPlayed = cursor.getString(3);
-        deckPlayed.setText(dbDeckPlayed);
-        dbOpponent = cursor.getString(4);
-        opponent.setText(dbOpponent);
-        dbOpponentDeck = cursor.getString(5);
-        opponentDeck.setText(dbOpponentDeck);
-        dbResult = cursor.getString(6);
-        //this needs handled special based off of a switch statement, will be making a function
-        resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
-        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
-        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        resultSpinner.setAdapter(resultAdapter);
-        setResultSpinner(dbResult);
-
+        returnToList = new Intent();
     }
 
     public void goToList(View view){
@@ -186,11 +152,7 @@ public class UpdateViewMatches
     }
 
     public void updateInformation(){
-        //Toast.makeText(this, "this is where we will go when we say yes that we want to update", Toast.LENGTH_SHORT).show();
-        //possibly should send them back to the previous stream
-
         ContentValues someValues = new ContentValues(); // this is a single row in the database.
-        //no idea how these will behave, will have to comment out advance features and run at ap level 21 for now
         someValues.put("playlevel", playLevel);
         someValues.put("name", name.getText().toString());
         someValues.put("deckplayed", deckPlayed.getText().toString());
@@ -198,6 +160,9 @@ public class UpdateViewMatches
         someValues.put("opponentdeck", opponentDeck.getText().toString());
         someValues.put("result", resultSpinner.getSelectedItem().toString());
         db.update(DB_TableName, someValues, "_id=" + Integer.toString(positionInDB),null);
+
+        setResult(Activity.RESULT_OK, returnToList);
+        finish();
     }
 
     @Override
@@ -220,6 +185,52 @@ public class UpdateViewMatches
                 break;
 
         }
+    }
+
+    public void inflateObjects(){
+        //connect all the edit texts and buttons
+        casualRB = (RadioButton) findViewById(R.id.casualEditRadioButton);
+        casualRB.setOnCheckedChangeListener(this);
+        testingRB = (RadioButton) findViewById(R.id.testingEditRadioButton);
+        testingRB.setOnCheckedChangeListener(this);
+        competitiveRB = (RadioButton) findViewById(R.id.competitiveEditRadioButton);
+        competitiveRB.setOnCheckedChangeListener(this);
+        //connect edit texts
+        name = (EditText) findViewById(R.id.nameEdit);
+        deckPlayed = (EditText) findViewById(R.id.deckPlayedEdit);
+        opponent = (EditText) findViewById(R.id.opponentEdit);
+        opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
+        //connect the spinner
+        resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
+    }
+
+    public void doDBStuff(){
+        //database stuff
+        events = new EventsData(this);
+        db = events.getWritableDatabase(); //open the database
+
+        //grab stuff from the database and populate all of our fields
+        cursor = db.query(DB_TableName, null, "_id=" + Integer.toString(positionInDB), null, null, null, null);
+        cursor.moveToFirst(); // initially set at 0 or nothing
+        dbID = cursor.getInt(0);
+        dbPlayLevel = cursor.getString(1);
+        //this needs handled special based off of a switch statement, will be making a function
+        setPlayLevel(dbPlayLevel);
+        dbName = cursor.getString(2);
+        name.setText(dbName);
+        dbDeckPlayed = cursor.getString(3);
+        deckPlayed.setText(dbDeckPlayed);
+        dbOpponent = cursor.getString(4);
+        opponent.setText(dbOpponent);
+        dbOpponentDeck = cursor.getString(5);
+        opponentDeck.setText(dbOpponentDeck);
+        dbResult = cursor.getString(6);
+        //this needs handled special based off of a switch statement, will be making a function
+        resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
+        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
+        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        resultSpinner.setAdapter(resultAdapter);
+        setResultSpinner(dbResult);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.kalvi_000.finalproject;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -29,10 +30,34 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
 
     Intent callUpdateView;
 
+    public static final int REQUEST_CODE = 10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        refreshInformation();
+        callUpdateView = new Intent(this, UpdateViewMatches.class);
+    }
 
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        callUpdateView.putExtra("Database Position", position+1);
+        startActivityForResult(callUpdateView,REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==REQUEST_CODE){
+            if(resultCode== Activity.RESULT_OK){
+                refreshInformation();
+            }
+            else{
+                Log.d("Brenneman","Shouldn't be here");
+            }
+        }
+    }
+
+    public void refreshInformation(){
         //database stuff
         events = new EventsData(this);
         db = events.getWritableDatabase(); //open the database
@@ -57,31 +82,6 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
             dbStrings.add(tempFill);
         }
         setListAdapter(new ArrayAdapter<>(this, R.layout.view_matches, R.id.databaseEntries, dbStrings));
-
-        callUpdateView = new Intent(this, UpdateViewMatches.class);
-    }
-
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        /*
-        //can use position+1 as the index of the database item that we want to view/edit
-        //seems like it would actually be a good place to implement fragments possibly
-        //lets  make a toast to test access of the element that we want.
-        cursor = db.query(DB_TableName, null, "_id=" + Integer.toString(position+1), null, null, null, null);
-        cursor.moveToFirst(); // initially set at 0 or nothing
-        String tempFill;
-        dbID = cursor.getInt(0);
-        dbPlayLevel = cursor.getString(1);
-        dbName = cursor.getString(2);
-        dbDeckPlayed = cursor.getString(3);
-        dbOpponent = cursor.getString(4);
-        dbOpponentDeck = cursor.getString(5);
-        dbResult = cursor.getString(6);
-        tempFill = dbPlayLevel + ": " + dbName +" (" + dbDeckPlayed + ") vs " + dbOpponent + " (" + dbOpponentDeck + ") Result: " + dbResult;
-
-        //need to create handling of the non existent fragment and packaging the data to be sent to the other intent.
-        */
-        callUpdateView.putExtra("Database Position", position+1);
-        startActivity(callUpdateView);
     }
 
 }

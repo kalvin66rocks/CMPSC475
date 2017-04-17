@@ -31,7 +31,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card"};
-        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
+        setListAdapter(new ArrayAdapter<>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
 
         //used for creating shortcuts from the app icon
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
@@ -70,14 +70,10 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 startActivity(new Intent(MainActivity.this, EnterMatches.class));
                 break;
             case 1:
-                Toast.makeText(this, "View Matches", Toast.LENGTH_SHORT).show();
-                //startActivity(new Intent(MainActivity.this, HowToPlay.class));
+                //Toast.makeText(this, "View Matches", Toast.LENGTH_SHORT).show();
                 //this will be view match history.
                 //will be temporarily used to debug db via logcat
                 cursor = db.query(DB_TableName, null, null, null, null, null, null);
-                //cursor.moveToFirst();
-                //no idea what the fuck is going on here
-                //start the cursor at the beginning of the table
                 while (cursor.moveToNext()) {  //move to next row, if possible
                     dbID = cursor.getInt(0);
                     Log.d("Query***** ID:", Integer.toString(dbID));
@@ -97,10 +93,14 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 startActivity(new Intent(MainActivity.this, ViewMatches.class));
                 break;
             case 2:
+                //this will clear the whole database
+                //have to figure out exact details on this
+                //will inlcude 2 confirmations in order to not let the user accidentally delete all the information by accident
                 //startActivity(new Intent(MainActivity.this, Question.class));
                 break;
             case 3:
-                //empty
+                //allows the user to go out to a website and search cards
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://gatherer.wizards.com/Pages/Default.aspx")));
                 break;
             case 4:
                 //empty
