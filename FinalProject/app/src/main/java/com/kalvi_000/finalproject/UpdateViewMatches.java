@@ -95,6 +95,7 @@ public class UpdateViewMatches
     }
 
     public void confirmationDialog(){
+        //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
                 .setTitle("Confirmation")
                 .setMessage("Update the match?")

@@ -13,7 +13,7 @@
     <list default="true" id="291b1fee-1917-4841-9c28-2fdb40606cd9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/UpdateViewMatches.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/UpdateViewMatches.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/ViewMatches.java" afterPath="$PROJECT_DIR$/../FinalProject/app/src/main/java/com/kalvi_000/finalproject/ViewMatches.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FirstDatabaseS15V2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1997,7 +1997,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
