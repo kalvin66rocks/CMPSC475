@@ -133,7 +133,6 @@ public class UpdateViewMatches
 
                     @Override
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        //updateInformation();
                         deleteDBEntry();
                     }})
                 .setNegativeButton("Cancel", null).show();
@@ -233,35 +232,6 @@ public class UpdateViewMatches
         opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
         //connect the spinner
         resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
-    }
-
-    public void doDBStuff(){
-        //database stuff
-        events = new EventsData(this);
-        db = events.getWritableDatabase(); //open the database
-
-        //grab stuff from the database and populate all of our fields
-        cursor = db.query(DB_TableName, null, "_id=" + Integer.toString(positionInDB), null, null, null, null);
-        cursor.moveToFirst(); // initially set at 0 or nothing
-        dbID = cursor.getInt(0);
-        dbPlayLevel = cursor.getString(1);
-        //this needs handled special based off of a switch statement, will be making a function
-        setPlayLevel(dbPlayLevel);
-        dbName = cursor.getString(2);
-        name.setText(dbName);
-        dbDeckPlayed = cursor.getString(3);
-        deckPlayed.setText(dbDeckPlayed);
-        dbOpponent = cursor.getString(4);
-        opponent.setText(dbOpponent);
-        dbOpponentDeck = cursor.getString(5);
-        opponentDeck.setText(dbOpponentDeck);
-        dbResult = cursor.getString(6);
-        //this needs handled special based off of a switch statement, will be making a function
-        resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
-        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
-        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        resultSpinner.setAdapter(resultAdapter);
-        setResultSpinner(dbResult);
     }
 
     public void deleteDBEntry(){

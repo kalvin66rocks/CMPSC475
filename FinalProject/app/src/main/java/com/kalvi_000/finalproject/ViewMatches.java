@@ -27,6 +27,7 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
     private EventsData events;
     int dbID;
     String dbName, dbDeckPlayed, dbOpponent, dbOpponentDeck, dbResult, dbPlayLevel;
+    ArrayList<Integer> dbIDList = new ArrayList<>();
 
     Intent callUpdateView;
 
@@ -40,7 +41,7 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
     }
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        callUpdateView.putExtra("Database Position", position+1);
+        callUpdateView.putExtra("Database Position", dbIDList.get(position));
         startActivityForResult(callUpdateView,REQUEST_CODE);
     }
 
@@ -53,6 +54,8 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
             }
             else{
                 Log.d("Brenneman","Shouldn't be here");
+                //we will refresh information anyway. maybe this will prevent crashing
+                refreshInformation();
             }
         }
     }
@@ -70,7 +73,7 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
             // it would make the listener for onItemSelected a little more ridiculous, but would prevent it from looking like shit
             String tempFill;
             dbID = cursor.getInt(0);
-            //need to put dbID into some form of an array
+            dbIDList.add(dbID); //used to pass the id of the selected element along when needed
             dbPlayLevel = cursor.getString(1);
             dbName = cursor.getString(2);
             dbDeckPlayed = cursor.getString(3);
