@@ -261,6 +261,7 @@ public class UpdateViewMatches
 
     }
 
+    //auto generated suppress code
     public void deleteMatch(@SuppressWarnings("UnusedParameters") View view){
         confirmationDialog();
     }
