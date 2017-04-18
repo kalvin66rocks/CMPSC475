@@ -2,10 +2,11 @@ package com.kalvi_000.finalproject;
 
 /**
  * Created by kalvi_000 on 4/15/2017.
+ * Constants for keeping the database happy
  */
 
-public interface DatabaseConstants {
-    public static final String DB_TableName = "matches";
-    public static final String DB_NAME = "finalproject.sqlite";
-    public static final int DB_VERSION = 1;
+interface DatabaseConstants {
+    String DB_TableName = "matches";
+    String DB_NAME = "finalproject.sqlite";
+    int DB_VERSION = 1;
 }

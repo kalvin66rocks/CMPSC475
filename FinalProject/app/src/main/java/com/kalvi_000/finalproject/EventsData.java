@@ -8,11 +8,12 @@ import static android.provider.BaseColumns._ID;
 
 /**
  * Created by kalvi_000 on 4/15/2017.
+ * This does Database stuff, not messing with it as much as we can
  */
 
-public class EventsData extends SQLiteOpenHelper implements DatabaseConstants {
+class EventsData extends SQLiteOpenHelper implements DatabaseConstants {
 
-    public  EventsData(Context ctx) {
+    EventsData(Context ctx) {
         super(ctx, DB_NAME, null, DB_VERSION); //defines name and version
 
     }

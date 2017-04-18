@@ -1,8 +1,5 @@
-<resources>
+<resources tools:ignore="TypographyDashes" xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Final Project</string>
-    <string name="messageForShortCut">Test Message</string>
-    <string name="str_shortcut_two">Shortcut 2</string>
-    <string name="str_shortcut_two_desc">Shortcut using code</string>
     <string-array name="Results">
         <item>2-0</item>
         <item>2-1</item>
