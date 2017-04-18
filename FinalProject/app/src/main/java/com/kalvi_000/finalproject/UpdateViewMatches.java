@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
@@ -53,7 +54,33 @@ public class UpdateViewMatches
 
         inflateObjects();
 
-        doDBStuff();
+        //database stuff
+        events = new EventsData(this);
+        db = events.getWritableDatabase(); //open the database
+
+        //grab stuff from the database and populate all of our fields
+        cursor = db.query(DB_TableName, null, "_id=" + Integer.toString(positionInDB), null, null, null, null);
+        Log.d("Before it Crashes", Integer.toString(positionInDB));
+        cursor.moveToFirst(); // initially set at 0 or nothing
+        dbID = cursor.getInt(0);
+        dbPlayLevel = cursor.getString(1);
+        setPlayLevel(dbPlayLevel);
+        dbName = cursor.getString(2);
+        name.setText(dbName);
+        dbDeckPlayed = cursor.getString(3);
+        deckPlayed.setText(dbDeckPlayed);
+        dbOpponent = cursor.getString(4);
+        opponent.setText(dbOpponent);
+        dbOpponentDeck = cursor.getString(5);
+        opponentDeck.setText(dbOpponentDeck);
+        dbResult = cursor.getString(6);
+
+        //spinner stuff
+        resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
+        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
+        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        resultSpinner.setAdapter(resultAdapter);
+        setResultSpinner(dbResult);
 
         returnToList = new Intent();
     }
