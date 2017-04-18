@@ -45,32 +45,7 @@ public class EnterMatches
         super.onCreate(savedInstanceState);
         setContentView(R.layout.entermatch);
 
-        //connect the button the can commit and clear data
-        commitData = (Button) findViewById(R.id.EnterButtonEnterConent);
-        commitData.setOnLongClickListener(this);
-
-        //connect radial button
-        casualRB = (RadioButton) findViewById(R.id.casualRadioButton);
-        casualRB.setOnCheckedChangeListener(this);
-        //connect radial button
-        testingRB = (RadioButton) findViewById(R.id.testingRadioButton);
-        testingRB.setOnCheckedChangeListener(this);
-        //connect radial button
-        competitiveRB = (RadioButton) findViewById(R.id.competitiveRadioButton);
-        competitiveRB.setOnCheckedChangeListener(this);
-
-        //connect the edit Texts
-        name = (EditText) findViewById(R.id.nameEdit);
-        deckPlayed = (EditText) findViewById(R.id.deckPlayedEdit);
-        opponent = (EditText) findViewById(R.id.opponentEdit);
-        opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
-
-        //connect the result spinner
-        //also populate it with its options
-        resultSpinner = (Spinner) findViewById(R.id.ResultSpinner);
-        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
-        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        resultSpinner.setAdapter(resultAdapter);
+        connectStuff();
 
         //database stuff
         events = new EventsData(this);
@@ -116,7 +91,6 @@ public class EnterMatches
             //Toast.makeText(this, "valid options, push entry to database", Toast.LENGTH_SHORT).show();
             //we have to build the items to push to the database here
             ContentValues someValues = new ContentValues(); // this is a single row in the database.
-            //no idea how these will behave, will have to comment out advance features and run at ap level 21 for now
             someValues.put("playlevel", playLevel);
             someValues.put("name", name.getText().toString());
             someValues.put("deckplayed", deckPlayed.getText().toString());
@@ -160,7 +134,34 @@ public class EnterMatches
         return true;
     }
 
+    public void connectStuff(){
+        //connect the button the can commit and clear data
+        commitData = (Button) findViewById(R.id.EnterButtonEnterConent);
+        commitData.setOnLongClickListener(this);
 
+        //connect radial button
+        casualRB = (RadioButton) findViewById(R.id.casualRadioButton);
+        casualRB.setOnCheckedChangeListener(this);
+        //connect radial button
+        testingRB = (RadioButton) findViewById(R.id.testingRadioButton);
+        testingRB.setOnCheckedChangeListener(this);
+        //connect radial button
+        competitiveRB = (RadioButton) findViewById(R.id.competitiveRadioButton);
+        competitiveRB.setOnCheckedChangeListener(this);
+
+        //connect the edit Texts
+        name = (EditText) findViewById(R.id.nameEdit);
+        deckPlayed = (EditText) findViewById(R.id.deckPlayedEdit);
+        opponent = (EditText) findViewById(R.id.opponentEdit);
+        opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
+
+        //connect the result spinner
+        //also populate it with its options
+        resultSpinner = (Spinner) findViewById(R.id.ResultSpinner);
+        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
+        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        resultSpinner.setAdapter(resultAdapter);
+    }
 
     public void clearFields(){
         //uncheck the radio buttons
