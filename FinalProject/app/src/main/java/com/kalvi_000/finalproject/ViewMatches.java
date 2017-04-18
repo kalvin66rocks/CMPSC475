@@ -70,6 +70,7 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
             // it would make the listener for onItemSelected a little more ridiculous, but would prevent it from looking like shit
             String tempFill;
             dbID = cursor.getInt(0);
+            //need to put dbID into some form of an array
             dbPlayLevel = cursor.getString(1);
             dbName = cursor.getString(2);
             dbDeckPlayed = cursor.getString(3);
