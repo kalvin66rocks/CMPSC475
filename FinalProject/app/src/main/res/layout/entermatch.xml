@@ -98,7 +98,7 @@
         android:text="Back" />
 
     <Button
-        android:id="@+id/EnterButtonEnterConent"
+        android:id="@+id/EnterButtonEnterContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/BackButtonEnterMatch"

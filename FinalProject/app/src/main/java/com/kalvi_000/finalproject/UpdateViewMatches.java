@@ -9,16 +9,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
+//import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.Toast;
+//import android.widget.Toast;
 
 /**
  * Created by Kevin on 4/16/2017.
+ * Used to Update and View match information
  */
 
 public class UpdateViewMatches
@@ -26,22 +28,32 @@ public class UpdateViewMatches
         implements DatabaseConstants,
         CompoundButton.OnCheckedChangeListener{
 
-    int positionInDB;
+    private int positionInDB;
 
     //database stuff
-    SQLiteDatabase db;
-    Cursor cursor;
-    private EventsData events;
-    int dbID;
-    String dbName, dbDeckPlayed, dbOpponent, dbOpponentDeck, dbResult, dbPlayLevel;
+    private SQLiteDatabase db;
+    private Cursor cursor;
+    //private EventsData events;
+    private int dbID;
+    private String dbName;
+    private String dbDeckPlayed;
+    private String dbOpponent;
+    private String dbOpponentDeck;
+    private String dbResult;
+    private String dbPlayLevel;
 
     //Button updateData;
-    RadioButton casualRB,testingRB,competitiveRB;
-    EditText name,opponent,deckPlayed,opponentDeck;
-    Spinner resultSpinner;
+    private RadioButton casualRB;
+    private RadioButton testingRB;
+    private RadioButton competitiveRB;
+    private EditText name;
+    private EditText opponent;
+    private EditText deckPlayed;
+    private EditText opponentDeck;
+    private Spinner resultSpinner;
     private String playLevel = "";
 
-    Intent returnToList;
+    private Intent returnToList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,16 +65,23 @@ public class UpdateViewMatches
 
         inflateObjects();
 
-        doDBStuff();
+        //database stuff
+        EventsData events;
+        events = new EventsData(this);
+        db = events.getWritableDatabase(); //open the database
+
+        dbStuff();
+
+        spinnerStuff();
 
         returnToList = new Intent();
     }
 
-    public void goToList(View view){
+    public void goToList(@SuppressWarnings("UnusedParameters") View view){
         finish();
     }
 
-    public void updateClick(View view){
+    public void updateClick(@SuppressWarnings("UnusedParameters") View view){
         //before we go to this we should run the full check on if all the fields contain a valid selection
         boolean incomplete = false;
         //will display error messages if any of the fields have been left empty
@@ -90,27 +109,29 @@ public class UpdateViewMatches
             incomplete = true;
         }
         if(!incomplete) {
-            confirmationDialog();
+            //I believe we are going to remove this and change the confirmation dialog to the delete entry option
+            //confirmationDialog();
+            updateInformation();
         }
     }
 
-    public void confirmationDialog(){
+    private void confirmationDialog(){
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
-                .setTitle("Confirmation")
-                .setMessage("Update the match?")
+                .setTitle("Confirm Deletion")
+                .setMessage("Delete this match?")
                 .setIcon(R.drawable.ic_warning_black_24dp)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        updateInformation();
+                        deleteDBEntry();
                     }})
-                .setNegativeButton("No", null).show();
+                .setNegativeButton("Cancel", null).show();
 
     }
 
-    public void setPlayLevel(String playLevelFromDB){
+    private void setPlayLevel(String playLevelFromDB){
         playLevel = playLevelFromDB;
         switch (playLevelFromDB){
             case "Casual":
@@ -125,7 +146,7 @@ public class UpdateViewMatches
         }
     }
 
-    public void setResultSpinner(String resultFromDB){
+    private void setResultSpinner(String resultFromDB){
         switch (resultFromDB){
             case "2-0":
                 resultSpinner.setSelection(0);
@@ -152,7 +173,7 @@ public class UpdateViewMatches
         }
     }
 
-    public void updateInformation(){
+    private void updateInformation(){
         ContentValues someValues = new ContentValues(); // this is a single row in the database.
         someValues.put("playlevel", playLevel);
         someValues.put("name", name.getText().toString());
@@ -188,7 +209,7 @@ public class UpdateViewMatches
         }
     }
 
-    public void inflateObjects(){
+    private void inflateObjects(){
         //connect all the edit texts and buttons
         casualRB = (RadioButton) findViewById(R.id.casualEditRadioButton);
         casualRB.setOnCheckedChangeListener(this);
@@ -205,17 +226,12 @@ public class UpdateViewMatches
         resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
     }
 
-    public void doDBStuff(){
-        //database stuff
-        events = new EventsData(this);
-        db = events.getWritableDatabase(); //open the database
-
+    private void dbStuff(){
         //grab stuff from the database and populate all of our fields
         cursor = db.query(DB_TableName, null, "_id=" + Integer.toString(positionInDB), null, null, null, null);
         cursor.moveToFirst(); // initially set at 0 or nothing
         dbID = cursor.getInt(0);
         dbPlayLevel = cursor.getString(1);
-        //this needs handled special based off of a switch statement, will be making a function
         setPlayLevel(dbPlayLevel);
         dbName = cursor.getString(2);
         name.setText(dbName);
@@ -226,7 +242,10 @@ public class UpdateViewMatches
         dbOpponentDeck = cursor.getString(5);
         opponentDeck.setText(dbOpponentDeck);
         dbResult = cursor.getString(6);
-        //this needs handled special based off of a switch statement, will be making a function
+    }
+
+    private void spinnerStuff(){
+        //spinner stuff
         resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
         ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
         resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -234,4 +253,15 @@ public class UpdateViewMatches
         setResultSpinner(dbResult);
     }
 
+    private void deleteDBEntry(){
+        //if I did this wrong it will delete the whole database
+        db.delete(DB_TableName,"_id=" + Integer.toString(positionInDB), null);
+        setResult(Activity.RESULT_OK, returnToList);
+        finish();
+
+    }
+
+    public void deleteMatch(@SuppressWarnings("UnusedParameters") View view){
+        confirmationDialog();
+    }
 }

@@ -2,7 +2,7 @@ package com.kalvi_000.finalproject;
 
 import android.app.Activity;
 import android.content.ContentValues;
-import android.database.Cursor;
+//import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 /**
  * Created by kalvi_000 on 4/11/2017.
+ * Enter match information here
  */
 
 public class EnterMatches
@@ -26,16 +27,16 @@ public class EnterMatches
         DatabaseConstants
 {
 
-    Button commitData;
-    RadioButton casualRB,testingRB,competitiveRB;
-    EditText name,opponent,deckPlayed,opponentDeck;
-    Spinner resultSpinner;
+    private Button commitData;
+    private RadioButton casualRB,testingRB,competitiveRB;
+    private EditText name,opponent,deckPlayed,opponentDeck;
+    private Spinner resultSpinner;
     private String playLevel = "";
 
     //database stuff
-    SQLiteDatabase db;
-    Cursor cursor;
-    private EventsData events;
+    private SQLiteDatabase db;
+    //Cursor cursor;
+    //private EventsData events;
 
     //used for creating the relationship between this activity
     //and the shortcut that is created from the home screen.
@@ -45,78 +46,51 @@ public class EnterMatches
         super.onCreate(savedInstanceState);
         setContentView(R.layout.entermatch);
 
-        //connect the button the can commit and clear data
-        commitData = (Button) findViewById(R.id.EnterButtonEnterConent);
-        commitData.setOnLongClickListener(this);
-
-        //connect radial button
-        casualRB = (RadioButton) findViewById(R.id.casualRadioButton);
-        casualRB.setOnCheckedChangeListener(this);
-        //connect radial button
-        testingRB = (RadioButton) findViewById(R.id.testingRadioButton);
-        testingRB.setOnCheckedChangeListener(this);
-        //connect radial button
-        competitiveRB = (RadioButton) findViewById(R.id.competitiveRadioButton);
-        competitiveRB.setOnCheckedChangeListener(this);
-
-        //connect the edit Texts
-        name = (EditText) findViewById(R.id.nameEdit);
-        deckPlayed = (EditText) findViewById(R.id.deckPlayedEdit);
-        opponent = (EditText) findViewById(R.id.opponentEdit);
-        opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
-
-        //connect the result spinner
-        //also populate it with its options
-        resultSpinner = (Spinner) findViewById(R.id.ResultSpinner);
-        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
-        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        resultSpinner.setAdapter(resultAdapter);
+        connectStuff();
 
         //database stuff
+        EventsData events;
         events = new EventsData(this);
         db = events.getWritableDatabase(); //open the database
 
 
     }
 
-    public void commitResults(View view){
-        boolean incomplete = false;
-        if (playLevel == ""){
+    public void commitResults(@SuppressWarnings("UnusedParameters") View view){
+        boolean fieldBlank = false;
+        if (playLevel.equals("")){
             Toast.makeText(this, "Please select a level of play", Toast.LENGTH_SHORT).show();
-            incomplete = true;
+            fieldBlank = true;
         }
         //will display error messages if any of the fields have been left empty
         String nameString = name.getText().toString();
         if(TextUtils.isEmpty(nameString)){
             name.setError("Name cannot be empty");
-            incomplete = true;
+            fieldBlank = true;
         }
         String deckString = deckPlayed.getText().toString();
         if(TextUtils.isEmpty(deckString)){
             deckPlayed.setError("Deck cannot be empty");
-            incomplete = true;
+            fieldBlank = true;
         }
         String opponentString = opponent.getText().toString();
         if(TextUtils.isEmpty(opponentString)){
             opponent.setError("Opponent cannot be empty");
-            incomplete = true;
+            fieldBlank = true;
         }
         String opponentDeckString = opponentDeck.getText().toString();
         if(TextUtils.isEmpty(opponentDeckString)){
             opponentDeck.setError("Opponent's Deck cannot be empty");
-            incomplete = true;
+            fieldBlank = true;
         }
         if(!casualRB.isChecked() && !testingRB.isChecked() && !competitiveRB.isChecked()){
-            incomplete = true;
+            fieldBlank = true;
         }
 
-
         //after all data is verified we will enter the result into the database
-        if(!incomplete){
-            //Toast.makeText(this, "valid options, push entry to database", Toast.LENGTH_SHORT).show();
+        if(!fieldBlank){
             //we have to build the items to push to the database here
             ContentValues someValues = new ContentValues(); // this is a single row in the database.
-            //no idea how these will behave, will have to comment out advance features and run at ap level 21 for now
             someValues.put("playlevel", playLevel);
             someValues.put("name", name.getText().toString());
             someValues.put("deckplayed", deckPlayed.getText().toString());
@@ -125,7 +99,8 @@ public class EnterMatches
             someValues.put("result", resultSpinner.getSelectedItem().toString());
             db.insert(DB_TableName, null, someValues);
             clearFields();
-        }else if(incomplete){
+        }else //noinspection ConstantConditions
+            if(fieldBlank){
             Toast.makeText(this, "Something is invalid, would not proceed", Toast.LENGTH_SHORT).show();
         }
     }
@@ -160,9 +135,36 @@ public class EnterMatches
         return true;
     }
 
+    private void connectStuff(){
+        //connect the button the can commit and clear data
+        commitData = (Button) findViewById(R.id.EnterButtonEnterContent);
+        commitData.setOnLongClickListener(this);
 
+        //connect radial button
+        casualRB = (RadioButton) findViewById(R.id.casualRadioButton);
+        casualRB.setOnCheckedChangeListener(this);
+        //connect radial button
+        testingRB = (RadioButton) findViewById(R.id.testingRadioButton);
+        testingRB.setOnCheckedChangeListener(this);
+        //connect radial button
+        competitiveRB = (RadioButton) findViewById(R.id.competitiveRadioButton);
+        competitiveRB.setOnCheckedChangeListener(this);
 
-    public void clearFields(){
+        //connect the edit Texts
+        name = (EditText) findViewById(R.id.nameEdit);
+        deckPlayed = (EditText) findViewById(R.id.deckPlayedEdit);
+        opponent = (EditText) findViewById(R.id.opponentEdit);
+        opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
+
+        //connect the result spinner
+        //also populate it with its options
+        resultSpinner = (Spinner) findViewById(R.id.ResultSpinner);
+        ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
+        resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        resultSpinner.setAdapter(resultAdapter);
+    }
+
+    private void clearFields(){
         //uncheck the radio buttons
         casualRB.setChecked(false);
         testingRB.setChecked(false);
@@ -180,7 +182,7 @@ public class EnterMatches
     }
 
 
-    public void goToMain(View view){
+    public void goToMain(@SuppressWarnings("UnusedParameters") View view){
         finish();
     }
 }

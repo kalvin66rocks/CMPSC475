@@ -23,11 +23,16 @@ import java.util.Collections;
 public class MainActivity extends ListActivity implements  DatabaseConstants{
 
     //database stuff
-    SQLiteDatabase db;
-    Cursor cursor;
-    private EventsData events;
-    int dbID;
-    String dbName, dbDeckPlayed, dbOpponent, dbOpponentDeck, dbResult, dbPlayLevel;
+    private SQLiteDatabase db;
+    private Cursor cursor;
+    //private EventsData events;
+    private int dbID;
+    private String dbName;
+    private String dbDeckPlayed;
+    private String dbOpponent;
+    private String dbOpponentDeck;
+    private String dbResult;
+    private String dbPlayLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
 
         //set up some database stuff
         //only needed on this screen for deleting the entire database.
+        EventsData events;
         events = new EventsData(this);
         db = events.getWritableDatabase(); //open the database
     }
@@ -87,7 +93,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         }
     }
 
-    public void createShortCuts(){
+    private void createShortCuts(){
         //Dynamic Shortcut instructions found at https://catinean.com/2016/10/20/exploring-android-nougat-7-1-app-shortcuts/
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
 
@@ -115,7 +121,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     }
 
     //first delete confirmation
-    public void deleteDialog(){
+    private void deleteDialog(){
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
                 .setTitle("Confirmation")
@@ -132,7 +138,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     }
 
     //second and final deletion confirmation
-    public void confirmDeleteDialog(){
+    private void confirmDeleteDialog(){
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
                 .setTitle("Confirmation")
@@ -147,7 +153,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 .setNegativeButton("No", null).show();
 
     }
-    public void deleteDB(){
+    private void deleteDB(){
         db.delete(DB_TableName,null, null);
         Toast.makeText(this, "Database cleared", Toast.LENGTH_SHORT).show();
     }
