@@ -9,4 +9,12 @@
         <item>1-0-1</item>
         <item>1-1-1</item>
     </string-array>
+    <string-array name="RandomFacts">
+        <item>Random Fact 1</item>
+        <item>Random Fact 2</item>
+        <item>Random Fact 3</item>
+        <item>Random Fact 4</item>
+        <item>Random Fact 5</item>
+        <item>Random Fact 6</item>
+    </string-array>
 </resources>

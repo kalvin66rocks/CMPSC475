@@ -11,17 +11,21 @@ import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.Random;
 
 /**
  * Created by Kevin on 4/19/2017.
+ * This will control the android side of the webview stuff
  */
 
 public class RandomCardWebView extends Activity {
 
     WebView randomCard;
+    String RandomUrl = "http://gatherer.wizards.com/Pages/Card/Details.aspx?action=random";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +33,25 @@ public class RandomCardWebView extends Activity {
         String url="file:///android_asset/webview.html";
         WebView cardfetcher = (WebView) findViewById(R.id.webView1);
         cardfetcher.setWebChromeClient(new WebChromeClient()); //use chrome
+        //cardfetcher.setWebViewClient(new WebViewClient());
         cardfetcher.getSettings().setJavaScriptEnabled(true);//enable js
         cardfetcher.addJavascriptInterface(new JavaScriptInterface(this),"Android");
         cardfetcher.loadUrl(url);
 
         randomCard = (WebView) findViewById(R.id.webView2);
         //randomCard.setWebChromeClient(new WebChromeClient()); //use chrome
-        String RandomUrl="http://gatherer.wizards.com/Pages/Card/Details.aspx?action=random";
-        randomCard.loadUrl(RandomUrl);
+        //chrome causes chrome to open webview does not
+        randomCard.setWebViewClient(new WebViewClient());
+        randomCard.setVisibility(View.INVISIBLE);
+        Button myButton = (Button) findViewById(R.id.button2);
+        myButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                randomCard.loadUrl(RandomUrl);
+                randomCard.setVisibility(View.VISIBLE);
+            }
+        });
+
     }
 
     public class JavaScriptInterface{
@@ -51,11 +66,10 @@ public class RandomCardWebView extends Activity {
             Toast.makeText(myContext,toastMsg,Toast.LENGTH_LONG).show();
         }
         @JavascriptInterface
-        public void RandomCard(){
-            String RandomUrl="http://gatherer.wizards.com/Pages/Card/Details.aspx?action=random";
-            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(RandomUrl)));
-            Toast.makeText(myContext,RandomUrl,Toast.LENGTH_LONG).show();
-            randomCard.loadUrl(RandomUrl);
+        public void RandomFact(){
+            Random rand = new Random();
+            int selection = rand.nextInt(5);
+            Toast.makeText(myContext,"will need to make a random number generator, and list of facts in strings.xml then just select a string to be displayed on toast " + selection,Toast.LENGTH_LONG).show();
 
         }
     }

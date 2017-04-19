@@ -10,15 +10,6 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/webView1" />
 
-    <TextView
-        android:id="@+id/textViewRandomCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/webView1"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="25dp"
-        android:text="Random Card Fetcher!" />
-
     <WebView
         android:id="@+id/webView2"
         android:layout_width="wrap_content"
@@ -26,4 +17,13 @@
         android:layout_alignParentBottom="false"
         android:layout_below="@+id/webView1"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View a Random Card"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp" />
 </RelativeLayout>

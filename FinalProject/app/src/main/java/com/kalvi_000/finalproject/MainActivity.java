@@ -37,7 +37,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "TBD - Scroll View thing", "TBD - Webview thing"};
+        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "TBD - Scroll View thing", "Wizards Only!"};
         setListAdapter(new ArrayAdapter<>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
 
         //function call to set dynamic shortcuts

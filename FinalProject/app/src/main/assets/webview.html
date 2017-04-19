@@ -8,8 +8,8 @@
         function showAndroidToast(toast){
            Android.ShowToast(toast);
         }
-        function randomCard(){
-           Android.RandomCard();
+        function randomFact(){
+           Android.RandomFact();
         }
         function changeStyles(){
            var myObject = document.getElementById("myHeading");
@@ -25,14 +25,16 @@
         }
     </script>
 </head>
-<body>
-<p id="myHeading" class="w3-leftbar w3-rightbar w3-bottombar">Welcome Earthling</p>
-<br>
+<div style="text-align:center">
+    <p id="myHeading" class="w3-leftbar w3-rightbar">It's a wizard!</p>
+</div>
+<div style="text-align:center">
+    <img id="scan_art" src="scan_art.jpg" height="50" width="50">
+    <img id="fastbond_art" src="fastbond_art.png" height="50" width="50">
+</div>
+
 <hr>
-<input type="button" value="Random Card" onclick="randomCard()" class="w3-bar w3-green"/>
+<input type="button" value="Random Fact" onclick="randomFact()" class="w3-bar w3-green"/>
 <br>
-<hr>
-<br>
-<input type="button" value="Change Properties" onclick="changeStyles()" class="w3-red w3-ripple"/>
 </body>
 </html>
