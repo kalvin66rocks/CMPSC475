@@ -37,7 +37,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "TBD"};
+        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "TBD - Scroll View thing", "TBD - Webview thing"};
         setListAdapter(new ArrayAdapter<>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
 
         //function call to set dynamic shortcuts
@@ -53,15 +53,15 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     protected void onListItemClick(ListView l, View v, int position, long id) {
         switch (position) {
             case 0:
+                //enter a match
                 startActivity(new Intent(MainActivity.this, EnterMatches.class));
                 break;
             case 1:
-                //Toast.makeText(this, "View Matches", Toast.LENGTH_SHORT).show();
-                //this will be view match history.
                 //will be temporarily used to debug db via logcat
                 cursor = db.query(DB_TableName, null, null, null, null, null, null);
                 while (cursor.moveToNext()) {  //move to next row, if possible
                     dbID = cursor.getInt(0);
+                    //I feel confident these comments can be removed soon
                     Log.d("Query***** ID:", Integer.toString(dbID));
                     dbPlayLevel = cursor.getString(1);
                     Log.d("Query***** PlayLevel:", dbPlayLevel);
@@ -90,6 +90,10 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 //not sure what this will be used for but I imagine it will be something to do with a webview activity
                 //empty
                 break;
+            case 5:
+                //not sure what this will be used for but I imagine it will be something to do with a webview activity
+                //empty
+                break;
         }
     }
 
@@ -103,10 +107,9 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://gatherer.wizards.com/Pages/Default.aspx")))
                 .build();
+        //shortcutManager.setDynamicShortcuts(Collections.singletonList(webShortcut));
 
-        shortcutManager.setDynamicShortcuts(Collections.singletonList(webShortcut));
-
-        ShortcutInfo dynamicShortcut = new ShortcutInfo.Builder(this, "shortcut_dynamic")
+        ShortcutInfo dynamicShortcutEnter = new ShortcutInfo.Builder(this, "id1")
                 .setShortLabel("Enter a Match Result")
                 .setLongLabel("Enter the Results of a Match Quickly")
                 .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
@@ -116,8 +119,10 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                                 new Intent(EnterMatches.ACTION)
                         })
                 .build();
+        
+        //may add another shortcut to intent, leaning towards not
 
-        shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcut));
+        shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcutEnter));
     }
 
     //first delete confirmation
