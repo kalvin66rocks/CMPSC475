@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kalvi_000.finalproject">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,6 +34,7 @@
         <activity android:name=".UpdateViewMatches">
             <!-- will not be putting shortcut stuff here as we do not want to be able to get here from externally -->
         </activity>
+        <activity android:name=".RandomCardWebView"></activity>
     </application>
 
 </manifest>

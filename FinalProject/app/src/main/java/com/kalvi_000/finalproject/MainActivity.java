@@ -91,8 +91,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 //empty
                 break;
             case 5:
-                //not sure what this will be used for but I imagine it will be something to do with a webview activity
-                //empty
+                startActivity(new Intent(MainActivity.this, RandomCardWebView.class));
                 break;
         }
     }
