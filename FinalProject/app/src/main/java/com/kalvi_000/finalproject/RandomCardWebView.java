@@ -74,7 +74,7 @@ public class RandomCardWebView extends Activity {
         public void RandomFact(){
             Random rand = new Random();
             int selection = rand.nextInt(5);
-            Toast.makeText(myContext,"will need to make a random number generator, and list of facts in strings.xml then just select a string to be displayed on toast " + selection,Toast.LENGTH_LONG).show();
+            Toast.makeText(myContext,facts[selection],Toast.LENGTH_LONG).show();
 
         }
     }
