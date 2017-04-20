@@ -181,6 +181,45 @@ public class EnterMatches
         //need to clear the selection on the spinner
     }
 
+    //preserve data on phone rotation
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("Name",name.getText().toString());
+        savedInstanceState.putString("DeckPlayed",deckPlayed.getText().toString());
+        savedInstanceState.putString("Opponent",opponent.getText().toString());
+        savedInstanceState.putString("OpponentDeck",opponentDeck.getText().toString());
+        savedInstanceState.putString("PlayLevel", playLevel);
+        savedInstanceState.putInt("Result", resultSpinner.getSelectedItemPosition());
+
+        //save the data
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    //restore data
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        //restore the data
+
+        name.setText(savedInstanceState.getString("Name"));
+        deckPlayed.setText(savedInstanceState.getString("DeckPlayed"));
+        opponent.setText(savedInstanceState.getString("Opponent"));
+        opponentDeck.setText(savedInstanceState.getString("OpponentDeck"));
+        playLevel = savedInstanceState.getString("Name");
+        switch(playLevel){
+            case "Casual":
+                casualRB.setChecked(true);
+                break;
+            case "Testing":
+                testingRB.setChecked(true);
+                break;
+            case "Competitive":
+                competitiveRB.setChecked(true);
+                break;
+        }
+        resultSpinner.setSelection(savedInstanceState.getInt("Result"));
+
+    }
 
     public void goToMain(@SuppressWarnings("UnusedParameters") View view){
         finish();
