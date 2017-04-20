@@ -26,10 +26,15 @@ public class RandomCardWebView extends Activity {
 
     WebView randomCard;
     String RandomUrl = "http://gatherer.wizards.com/Pages/Card/Details.aspx?action=random";
+    String [] facts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webview_random_card);
+
+        //load in the array
+        facts = getResources().getStringArray(R.array.RandomFacts);
+
         String url="file:///android_asset/webview.html";
         WebView cardfetcher = (WebView) findViewById(R.id.webView1);
         cardfetcher.setWebChromeClient(new WebChromeClient()); //use chrome
