@@ -10,6 +10,7 @@
         android:id="@+id/menuOption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
         android:drawableLeft="@drawable/planeswalker_symbol"
         android:drawableRight="@drawable/planeswalker_symbol"
         android:paddingBottom="10dp"
