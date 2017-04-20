@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 //import android.util.Log;
@@ -23,10 +24,7 @@ import android.widget.Spinner;
  * Used to Update and View match information
  */
 
-public class UpdateViewMatches
-        extends Activity
-        implements DatabaseConstants,
-        CompoundButton.OnCheckedChangeListener{
+public class UpdateViewMatches extends Activity implements DatabaseConstants, CompoundButton.OnCheckedChangeListener{
 
     private int positionInDB;
 
@@ -263,6 +261,8 @@ public class UpdateViewMatches
 
     //auto generated suppress code
     public void deleteMatch(@SuppressWarnings("UnusedParameters") View view){
+        final MediaPlayer warning = MediaPlayer.create(this, R.raw.warning);
+        warning.start();
         confirmationDialog();
     }
 

@@ -9,6 +9,7 @@ import android.content.pm.ShortcutManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Icon;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -126,6 +127,8 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
 
     //first delete confirmation
     private void deleteDialog(){
+        final MediaPlayer warning = MediaPlayer.create(this, R.raw.airhorn);
+        warning.start();
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
                 .setTitle("Confirmation")
