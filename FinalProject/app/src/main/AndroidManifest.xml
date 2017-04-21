@@ -13,13 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-
         <!-- Need to put binding for a wear listener of some type here -->
+
 
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,13 +27,14 @@
             android:label="Enter matches activity" >
             <intent-filter>
                 <action android:name="com.kalvi_000.finalproject.OPEN_DYNAMIC_SHORTCUT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".ViewMatches" >
-
-            <!-- will have to put shortcut stuff here -->
+            <intent-filter>
+                <action android:name="com.kalvi_000.finalproject.OPEN_DYNAMIC_SHORTCUT_VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity android:name=".UpdateViewMatches" >
 
