@@ -21,6 +21,8 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static android.content.ContentValues.TAG;
+
 public class MainActivity extends ListActivity implements  DatabaseConstants{
 
     //database stuff
@@ -164,4 +166,6 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         db.delete(DB_TableName,null, null);
         Toast.makeText(this, "Database cleared", Toast.LENGTH_SHORT).show();
     }
+
+
 }
