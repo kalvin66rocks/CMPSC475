@@ -1,6 +1,7 @@
 package com.kalvi_000.finalprojectwear;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -83,7 +84,13 @@ public class MainActivityWear extends WearableActivity{
 
     public void makeToast(View view){
         Toast.makeText(this, "Let's send a message to mobile!" ,Toast.LENGTH_SHORT).show();
-        sendToast();
+        //sendToast();
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 
     @Override

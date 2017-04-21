@@ -121,10 +121,21 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                                 new Intent(EnterMatches.ACTION)
                         })
                 .build();
+
+        ShortcutInfo dynamicShortcutView = new ShortcutInfo.Builder(this, "id2")
+                .setShortLabel("View Match Results")
+                .setLongLabel("View Match Results")
+                .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
+                .setIntents(
+                        new Intent[]{
+                                new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK),
+                                new Intent(ViewMatches.VIEW)
+                        })
+                .build();
         
         //may add another shortcut to intent, leaning towards not
 
-        shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcutEnter));
+        shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcutEnter, dynamicShortcutView));
     }
 
     //first delete confirmation
