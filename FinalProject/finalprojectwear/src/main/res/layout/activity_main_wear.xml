@@ -32,11 +32,11 @@
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="makeToast"
-            android:text="Button"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="34dp" />
+            android:layout_marginBottom="34dp"
+            android:onClick="makeToast"
+            android:text="Toast" />
     </RelativeLayout>
 
 </android.support.wearable.view.BoxInsetLayout>
