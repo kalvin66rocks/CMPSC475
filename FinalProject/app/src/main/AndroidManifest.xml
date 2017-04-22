@@ -13,7 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <!-- Need to put binding for a wear listener of some type here -->
+        <!--
+
+        Need to put binding for a wear listener of some type here
+        <service
+            android:name=".ListenerService" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+            </intent-filter>
+        </service>
+
+        -->
 
 
         <activity android:name=".MainActivity" >
