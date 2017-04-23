@@ -16,14 +16,16 @@
         <!--
 
         Need to put binding for a wear listener of some type here
+        <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+        -->
         <service
-            android:name=".ListenerService" >
+            android:name=".WearListenerService" >
             <intent-filter>
-                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>
         </service>
 
-        -->
+
 
 
         <activity android:name=".MainActivity" >

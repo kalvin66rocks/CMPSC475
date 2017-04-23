@@ -1,10 +1,8 @@
-package com.kalvi_000.finalprojectwear;
+package com.kalvi_000.finalproject;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.BoxInsetLayout;
 import android.view.View;
@@ -31,11 +29,16 @@ public class MainActivityWear extends WearableActivity{
     https://github.com/twotoasters/Wear-MessageApiDemo
     */
 
+    //included on creation
     private static final SimpleDateFormat AMBIENT_DATE_FORMAT =
             new SimpleDateFormat("HH:mm", Locale.US);
-    private static final long CONNECTION_TIME_OUT_MS = 100;
+
+
+    //rebuild app
+    private static final long CONNECTION_TIME_OUT_MS = 200;
     private static final String MESSAGE = "Hello Wear!";
 
+    //included on creation
     private BoxInsetLayout mContainerView;
     private TextView mTextView;
     private TextView mClockView;
@@ -52,6 +55,7 @@ public class MainActivityWear extends WearableActivity{
         mContainerView = (BoxInsetLayout) findViewById(R.id.container);
         mTextView = (TextView) findViewById(R.id.text);
         mClockView = (TextView) findViewById(R.id.clock);
+
         initGoogleAPI();
     }
 
@@ -84,7 +88,7 @@ public class MainActivityWear extends WearableActivity{
 
     public void makeToast(View view){
         Toast.makeText(this, "Let's send a message to mobile!" ,Toast.LENGTH_SHORT).show();
-        //sendToast();
+        sendToast();
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
@@ -126,9 +130,6 @@ public class MainActivityWear extends WearableActivity{
     }
 
     private void sendToast() {
-
-        //send some form of identifier in the message layer
-        //need to create the listener in the main activity side.
         if (nodeId != null) {
             new Thread(new Runnable() {
                 @Override
