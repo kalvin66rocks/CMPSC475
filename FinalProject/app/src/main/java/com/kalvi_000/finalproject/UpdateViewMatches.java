@@ -31,7 +31,7 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
     //database stuff
     private SQLiteDatabase db;
     private Cursor cursor;
-    //private EventsData events;
+    //stuff for getting info from db
     private int dbID;
     private String dbName;
     private String dbDeckPlayed;
@@ -40,7 +40,7 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
     private String dbResult;
     private String dbPlayLevel;
 
-    //Button updateData;
+    //UI elements
     private RadioButton casualRB;
     private RadioButton testingRB;
     private RadioButton competitiveRB;
@@ -51,6 +51,7 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
     private Spinner resultSpinner;
     private String playLevel = "";
 
+    //intent for getting back
     private Intent returnToList;
 
     @Override

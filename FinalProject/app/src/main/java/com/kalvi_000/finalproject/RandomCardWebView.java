@@ -38,17 +38,16 @@ public class RandomCardWebView extends Activity {
         String url="file:///android_asset/webview.html";
         WebView cardfetcher = (WebView) findViewById(R.id.webView1);
         cardfetcher.setWebChromeClient(new WebChromeClient()); //use chrome
-        //cardfetcher.setWebViewClient(new WebViewClient());
         cardfetcher.getSettings().setJavaScriptEnabled(true);//enable js
         cardfetcher.addJavascriptInterface(new JavaScriptInterface(this),"Android");
         cardfetcher.loadUrl(url);
 
         randomCard = (WebView) findViewById(R.id.webView2);
-        //randomCard.setWebChromeClient(new WebChromeClient()); //use chrome
-        //chrome causes chrome to open webview does not
+        //chrome causes chrome browser to open webview does not
         randomCard.setWebViewClient(new WebViewClient());
         randomCard.setVisibility(View.INVISIBLE);
         Button myButton = (Button) findViewById(R.id.button2);
+        //according to errors and documentation, setting the listener for the button here is the only way to properly do things whenever a webview is involved
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +58,7 @@ public class RandomCardWebView extends Activity {
 
     }
 
+    //make javascript for my webview
     public class JavaScriptInterface{
         Context myContext;
 
@@ -66,10 +66,12 @@ public class RandomCardWebView extends Activity {
             myContext = c;
         }
 
+        //I don't think I'm using this so it will end up removed
         @JavascriptInterface
         public void ShowToast(String toastMsg){
             Toast.makeText(myContext,toastMsg,Toast.LENGTH_LONG).show();
         }
+
         @JavascriptInterface
         public void RandomFact(){
             Random rand = new Random();

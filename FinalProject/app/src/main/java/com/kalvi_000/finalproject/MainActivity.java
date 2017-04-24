@@ -28,7 +28,8 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     //database stuff
     private SQLiteDatabase db;
     private Cursor cursor;
-    //private EventsData events;
+
+    //variables for debugging the db
     private int dbID;
     private String dbName;
     private String dbDeckPlayed;
@@ -40,6 +41,8 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //fill up the list view  with all of the main menu options
         String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "Favorite Cards", "Wizards Only!"};
         setListAdapter(new ArrayAdapter<>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
 
@@ -47,12 +50,13 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         createShortCuts();
 
         //set up some database stuff
-        //only needed on this screen for deleting the entire database.
+        //only needed in this activity to delete the entire database
         EventsData events;
         events = new EventsData(this);
         db = events.getWritableDatabase(); //open the database
     }
 
+    //main listener to handle the main menu
     protected void onListItemClick(ListView l, View v, int position, long id) {
         switch (position) {
             case 0:
@@ -60,6 +64,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 startActivity(new Intent(MainActivity.this, EnterMatches.class));
                 break;
             case 1:
+                /*
                 //will be temporarily used to debug db via logcat
                 cursor = db.query(DB_TableName, null, null, null, null, null, null);
                 while (cursor.moveToNext()) {  //move to next row, if possible
@@ -79,6 +84,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                     dbResult = cursor.getString(6);
                     Log.d("Query*****", dbResult);
                 }
+                */
                 startActivity(new Intent(MainActivity.this, ViewMatches.class));
                 break;
             case 2:
@@ -94,6 +100,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 startActivity(new Intent(MainActivity.this, ScrollActivity.class));
                 break;
             case 5:
+                //go to an activity with a webview that generates random facts and a built in webview that pulls up a random page from gatherer
                 startActivity(new Intent(MainActivity.this, RandomCardWebView.class));
                 break;
         }
@@ -103,14 +110,15 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         //Dynamic Shortcut instructions found at https://catinean.com/2016/10/20/exploring-android-nougat-7-1-app-shortcuts/
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
 
+        //create dynamic shortcut to a website
         ShortcutInfo webShortcut = new ShortcutInfo.Builder(this, "shortcut_web")
                 .setShortLabel("Card Search")
                 .setLongLabel("Open wizard's website to search for cards")
                 .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://gatherer.wizards.com/Pages/Default.aspx")))
                 .build();
-        //shortcutManager.setDynamicShortcuts(Collections.singletonList(webShortcut));
 
+        //create a dynamic shortcut to Enter Match
         ShortcutInfo dynamicShortcutEnter = new ShortcutInfo.Builder(this, "id1")
                 .setShortLabel("Enter a Match Result")
                 .setLongLabel("Enter the Results of a Match Quickly")
@@ -122,6 +130,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                         })
                 .build();
 
+        //create a dynamic shortcut to view matches
         ShortcutInfo dynamicShortcutView = new ShortcutInfo.Builder(this, "id2")
                 .setShortLabel("View Match Results")
                 .setLongLabel("View Match Results")
@@ -132,11 +141,12 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                                 new Intent(ViewMatches.VIEW)
                         })
                 .build();
-        
-        //may add another shortcut to intent, leaning towards not
 
+        //add all the dynamic shortcuts
         shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcutEnter, dynamicShortcutView));
     }
+
+    //confirmation dialog instructions found within the AndroidSDK documenation and figuring stuff out in android Studio
 
     //first delete confirmation
     private void deleteDialog(){
@@ -151,13 +161,13 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
 
                     @Override
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        confirmDeleteDialog(); //this needs to be a function call
+                        confirmDeleteDialog(); //this needs to be a function call not sure why but it makes things function correctly
                     }})
                 .setNegativeButton("No", null).show();
 
     }
 
-    //second and final deletion confirmation
+    //final deletion confirmation
     private void confirmDeleteDialog(){
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
@@ -173,6 +183,8 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 .setNegativeButton("No", null).show();
 
     }
+
+    //function to delete all the entries in the database
     private void deleteDB(){
         db.delete(DB_TableName,null, null);
         Toast.makeText(this, "Database cleared", Toast.LENGTH_SHORT).show();

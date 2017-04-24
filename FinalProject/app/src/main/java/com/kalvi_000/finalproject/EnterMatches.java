@@ -20,27 +20,24 @@ import android.widget.Toast;
  * Enter match information here
  */
 
-public class EnterMatches
-        extends Activity
-        implements View.OnLongClickListener,
-        CompoundButton.OnCheckedChangeListener,
-        DatabaseConstants
+public class EnterMatches extends Activity implements View.OnLongClickListener, CompoundButton.OnCheckedChangeListener, DatabaseConstants
 {
 
+    //connect UI elements
     private Button commitData;
     private RadioButton casualRB,testingRB,competitiveRB;
     private EditText name,opponent,deckPlayed,opponentDeck;
     private Spinner resultSpinner;
+
+    //string used for keeping track of the option selected in the checkbox
     private String playLevel = "";
 
     //database stuff
     private SQLiteDatabase db;
-    //Cursor cursor;
-    //private EventsData events;
 
-    //used for creating the relationship between this activity
-    //and the shortcut that is created from the home screen.
+    //this string is used by the dynamic shortcut manager for launching this activity
     public static final String ACTION = BuildConfig.APPLICATION_ID + ".OPEN_DYNAMIC_SHORTCUT";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +54,15 @@ public class EnterMatches
     }
 
     public void commitResults(@SuppressWarnings("UnusedParameters") View view){
+        //keep track of  if a field has been left blank
         boolean fieldBlank = false;
+
+        //if the user doesn't have a radial box selected
         if (playLevel.equals("")){
             Toast.makeText(this, "Please select a level of play", Toast.LENGTH_SHORT).show();
             fieldBlank = true;
         }
+
         //will display error messages if any of the fields have been left empty
         String nameString = name.getText().toString();
         if(TextUtils.isEmpty(nameString)){
@@ -88,7 +89,7 @@ public class EnterMatches
         }
 
         //after all data is verified we will enter the result into the database
-        if(!fieldBlank){
+        if(!fieldBlank) {
             //we have to build the items to push to the database here
             ContentValues someValues = new ContentValues(); // this is a single row in the database.
             someValues.put("playlevel", playLevel);
@@ -99,14 +100,13 @@ public class EnterMatches
             someValues.put("result", resultSpinner.getSelectedItem().toString());
             db.insert(DB_TableName, null, someValues);
             clearFields();
-        }else //noinspection ConstantConditions
-            if(fieldBlank){
-            Toast.makeText(this, "Something is invalid, would not proceed", Toast.LENGTH_SHORT).show();
         }
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        //this will all trigger whenever a radial button is selected
+        //this will also set the playlevel
         switch (buttonView.getId()) {
             case R.id.casualRadioButton:
                 if(isChecked){
@@ -127,7 +127,7 @@ public class EnterMatches
         }
     }
 
-    //will only be attacking this to the enter/clear button
+    //allows the user to clear all the fields by long pressing the enter button
     @Override
     public boolean onLongClick(View arg0) {
         clearFields();
@@ -135,18 +135,19 @@ public class EnterMatches
         return true;
     }
 
+    //turned connecting everything into a function to make everything cleaner
     private void connectStuff(){
         //connect the button the can commit and clear data
         commitData = (Button) findViewById(R.id.EnterButtonEnterContent);
         commitData.setOnLongClickListener(this);
 
-        //connect radial button
+        //connect radial buttons
         casualRB = (RadioButton) findViewById(R.id.casualRadioButton);
         casualRB.setOnCheckedChangeListener(this);
-        //connect radial button
+
         testingRB = (RadioButton) findViewById(R.id.testingRadioButton);
         testingRB.setOnCheckedChangeListener(this);
-        //connect radial button
+
         competitiveRB = (RadioButton) findViewById(R.id.competitiveRadioButton);
         competitiveRB.setOnCheckedChangeListener(this);
 
@@ -156,8 +157,7 @@ public class EnterMatches
         opponent = (EditText) findViewById(R.id.opponentEdit);
         opponentDeck = (EditText) findViewById(R.id.opponentDeckEdit);
 
-        //connect the result spinner
-        //also populate it with its options
+        //connect the result spinner and populate it from array
         resultSpinner = (Spinner) findViewById(R.id.ResultSpinner);
         ArrayAdapter<CharSequence> resultAdapter = ArrayAdapter.createFromResource(this, R.array.Results, android.R.layout.simple_spinner_item);
         resultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -176,9 +176,11 @@ public class EnterMatches
         opponent.setText("");
         opponentDeck.setText("");
 
+        //clear playLevel
         playLevel = "";
 
         //need to clear the selection on the spinner
+        resultSpinner.setSelection(0);
     }
 
     //preserve data on phone rotation
@@ -195,7 +197,7 @@ public class EnterMatches
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    //restore data
+    //restore data on phone rotation
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
