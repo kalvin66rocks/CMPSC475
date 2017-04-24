@@ -146,7 +146,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcutEnter, dynamicShortcutView));
     }
 
-    //confirmation dialog instructions found within the AndroidSDK documenation and figuring stuff out in android Studio
+    //confirmation dialog instructions found within the AndroidSDK documentation and figuring stuff out in Android Studio
 
     //first delete confirmation
     private void deleteDialog(){
