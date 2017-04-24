@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mtgcardback">
 
     <RadioGroup
         android:id="@+id/RadioButtonGroupEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:orientation="horizontal"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:layout_centerHorizontal="true">
 
         <RadioButton
             android:id="@+id/casualRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/background_light"
             android:text="Casual" />
 
         <RadioButton
@@ -23,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/background_light"
             android:text="Testing" />
 
         <RadioButton
@@ -30,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/background_light"
             android:text="Competitive" />
     </RadioGroup>
 
@@ -37,12 +42,13 @@
         android:id="@+id/nameEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/RadioButtonGroupEdit"
-        android:layout_below="@+id/RadioButtonGroupEdit"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="41dp"
+        android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_below="@+id/RadioButtonGroupEdit"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/deckPlayedEdit"
@@ -51,6 +57,7 @@
         android:layout_alignStart="@+id/nameEdit"
         android:layout_below="@+id/nameEdit"
         android:layout_marginTop="44dp"
+        android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Deck Played"
         android:inputType="textPersonName" />
@@ -62,6 +69,7 @@
         android:layout_alignStart="@+id/deckPlayedEdit"
         android:layout_below="@+id/deckPlayedEdit"
         android:layout_marginTop="51dp"
+        android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Opponent"
         android:inputType="textPersonName" />
@@ -73,6 +81,7 @@
         android:layout_alignStart="@+id/opponentEdit"
         android:layout_below="@+id/opponentEdit"
         android:layout_marginTop="45dp"
+        android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Opponent's Deck"
         android:inputType="textPersonName" />
@@ -81,11 +90,12 @@
         android:id="@+id/ResultSpinner"
         android:layout_width="210dp"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/opponentDeckEdit"
         android:layout_alignRight="@+id/opponentDeckEdit"
-        android:layout_alignStart="@+id/opponentDeckEdit"
         android:layout_below="@+id/opponentDeckEdit"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="48dp"
+        android:background="@android:color/background_light" />
 
     <Button
         android:id="@+id/BackButtonEnterMatch"
@@ -94,6 +104,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/opponentDeckEdit"
         android:layout_marginBottom="46dp"
+        android:background="@android:color/holo_blue_bright"
         android:onClick="goToMain"
         android:text="Back" />
 
@@ -103,6 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/BackButtonEnterMatch"
         android:layout_alignEnd="@+id/opponentDeckEdit"
+        android:background="@android:color/holo_green_light"
         android:onClick="commitResults"
         android:text="Enter" />
 </RelativeLayout>

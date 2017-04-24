@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/EditMatches"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RadioGroup
+        android:id="@+id/RadioButtonGroupEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="19dp">
+
+        <RadioButton
+            android:id="@+id/casualEditRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Casual" />
+
+        <RadioButton
+            android:id="@+id/testingEditRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Testing" />
+
+        <RadioButton
+            android:id="@+id/competitiveEditRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Competitive" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/nameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/RadioButtonGroupEdit"
+        android:layout_below="@+id/RadioButtonGroupEdit"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/deckPlayedEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nameEdit"
+        android:layout_below="@+id/nameEdit"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Deck Played"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/opponentEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Opponent"
+        android:inputType="textPersonName"
+        android:layout_alignTop="@+id/RadioButtonGroupEdit"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="28dp" />
+
+    <EditText
+        android:id="@+id/opponentDeckEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/opponentEdit"
+        android:layout_below="@+id/opponentEdit"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:hint="Opponent's Deck"
+        android:inputType="textPersonName" />
+
+    <Spinner
+        android:id="@+id/ResultSpinnerEdit"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/opponentDeckEdit"
+        android:layout_alignStart="@+id/opponentDeckEdit"
+        android:layout_below="@+id/opponentDeckEdit"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="48dp" />
+
+    <Button
+        android:id="@+id/BackButtonEnterMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/holo_blue_bright"
+        android:onClick="goToList"
+        android:text="Back"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/RadioButtonGroupEdit" />
+
+    <Button
+        android:id="@+id/UpdateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:onClick="updateClick"
+        android:text="Update"
+        android:layout_alignBaseline="@+id/BackButtonEnterMatch"
+        android:layout_alignBottom="@+id/BackButtonEnterMatch"
+        android:layout_alignStart="@+id/opponentDeckEdit" />
+
+    <Button
+        android:id="@+id/deleteEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_dark"
+        android:onClick="deleteMatch"
+        android:text="Delete"
+        android:layout_alignBaseline="@+id/UpdateButton"
+        android:layout_alignBottom="@+id/UpdateButton"
+        android:layout_alignEnd="@+id/ResultSpinnerEdit" />
+</RelativeLayout>

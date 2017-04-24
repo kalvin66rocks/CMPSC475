@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray">
+
+    <RadioGroup
+        android:id="@+id/RadioButtonGroupEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/casualRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Casual" />
+
+        <RadioButton
+            android:id="@+id/testingRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Testing" />
+
+        <RadioButton
+            android:id="@+id/competitiveRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Competitive" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/nameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/RadioButtonGroupEdit"
+        android:layout_below="@+id/RadioButtonGroupEdit"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/deckPlayedEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/nameEdit"
+        android:layout_below="@+id/nameEdit"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:hint="Deck Played"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/opponentEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/RadioButtonGroupEdit"
+        android:layout_marginEnd="13dp"
+        android:ems="10"
+        android:hint="Opponent"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/opponentDeckEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/nameEdit"
+        android:layout_alignBottom="@+id/nameEdit"
+        android:layout_alignStart="@+id/opponentEdit"
+        android:ems="10"
+        android:hint="Opponent's Deck"
+        android:inputType="textPersonName" />
+
+    <Spinner
+        android:id="@+id/ResultSpinner"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/opponentDeckEdit"
+        android:layout_below="@+id/opponentDeckEdit"
+        android:layout_marginTop="31dp" />
+
+    <Button
+        android:id="@+id/BackButtonEnterMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/opponentDeckEdit"
+        android:layout_marginBottom="46dp"
+        android:background="@android:color/holo_blue_bright"
+        android:onClick="goToMain"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/EnterButtonEnterContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/BackButtonEnterMatch"
+        android:layout_alignEnd="@+id/opponentDeckEdit"
+        android:background="@android:color/holo_green_light"
+        android:onClick="commitResults"
+        android:text="Enter" />
+</RelativeLayout>

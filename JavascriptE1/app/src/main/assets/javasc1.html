@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+
+    </style>
+    <script>
+        var myToggle = false; //set global variable
+        function showAndroidToast(toast){
+           Android.ShowToast(toast);
+        }
+        function incrementNumber(){
+           var aNumber = prompt("Please enter a number to be incremented","type here");
+           Android.IncrementNumber(aNumber);
+        }
+        function changeStyles(){
+           var myObject = document.getElementById("myHeading");
+           if (myToggle == false) {
+              myObject.style.fontSize = "40px";
+              myObject.style.color = "blue";
+              myToggle = true;
+           }else{
+              myObject.style.fontSize = "15px";
+              myObject.style.color = "black";
+              myToggle = false;
+           }
+        }
+    </script>
+</head>
+<body>
+<p id="myHeading">Welcome Earthling</p>
+<input type="button" value="Toast" onclick="showAndroidToast('Hello Behrendites!')"/>
+<br>
+<hr>
+<input type="button" value="Increment a Number" onclick="incrementNumber()"/>
+<br>
+<hr>
+<input type="button" value="Danger" onclick="alert('Danger Will Robinson')"/><br>
+&nbsp;&nbsp;
+<input type="button" value="Change Properties" onclick="changeStyles()"/>
+</body>
+</html>

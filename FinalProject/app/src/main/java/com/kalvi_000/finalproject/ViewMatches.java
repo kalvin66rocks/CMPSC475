@@ -38,6 +38,8 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
 
     private static final int REQUEST_CODE = 10;
 
+    public static final String VIEW = BuildConfig.APPLICATION_ID + ".OPEN_DYNAMIC_SHORTCUT_VIEW";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

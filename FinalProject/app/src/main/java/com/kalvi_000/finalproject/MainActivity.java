@@ -9,6 +9,7 @@ import android.content.pm.ShortcutManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Icon;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.Collections;
+
+import static android.content.ContentValues.TAG;
 
 public class MainActivity extends ListActivity implements  DatabaseConstants{
 
@@ -37,7 +40,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "TBD"};
+        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "Favorite Cards", "Wizards Only!"};
         setListAdapter(new ArrayAdapter<>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
 
         //function call to set dynamic shortcuts
@@ -53,15 +56,15 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     protected void onListItemClick(ListView l, View v, int position, long id) {
         switch (position) {
             case 0:
+                //enter a match
                 startActivity(new Intent(MainActivity.this, EnterMatches.class));
                 break;
             case 1:
-                //Toast.makeText(this, "View Matches", Toast.LENGTH_SHORT).show();
-                //this will be view match history.
                 //will be temporarily used to debug db via logcat
                 cursor = db.query(DB_TableName, null, null, null, null, null, null);
                 while (cursor.moveToNext()) {  //move to next row, if possible
                     dbID = cursor.getInt(0);
+                    //I feel confident these comments can be removed soon
                     Log.d("Query***** ID:", Integer.toString(dbID));
                     dbPlayLevel = cursor.getString(1);
                     Log.d("Query***** PlayLevel:", dbPlayLevel);
@@ -87,8 +90,11 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://gatherer.wizards.com/Pages/Default.aspx")));
                 break;
             case 4:
-                //not sure what this will be used for but I imagine it will be something to do with a webview activity
-                //empty
+                //favorite card scroll view activity (not built yet)
+                startActivity(new Intent(MainActivity.this, ScrollActivity.class));
+                break;
+            case 5:
+                startActivity(new Intent(MainActivity.this, RandomCardWebView.class));
                 break;
         }
     }
@@ -103,10 +109,9 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://gatherer.wizards.com/Pages/Default.aspx")))
                 .build();
+        //shortcutManager.setDynamicShortcuts(Collections.singletonList(webShortcut));
 
-        shortcutManager.setDynamicShortcuts(Collections.singletonList(webShortcut));
-
-        ShortcutInfo dynamicShortcut = new ShortcutInfo.Builder(this, "shortcut_dynamic")
+        ShortcutInfo dynamicShortcutEnter = new ShortcutInfo.Builder(this, "id1")
                 .setShortLabel("Enter a Match Result")
                 .setLongLabel("Enter the Results of a Match Quickly")
                 .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
@@ -117,11 +122,26 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                         })
                 .build();
 
-        shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcut));
+        ShortcutInfo dynamicShortcutView = new ShortcutInfo.Builder(this, "id2")
+                .setShortLabel("View Match Results")
+                .setLongLabel("View Match Results")
+                .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
+                .setIntents(
+                        new Intent[]{
+                                new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK),
+                                new Intent(ViewMatches.VIEW)
+                        })
+                .build();
+        
+        //may add another shortcut to intent, leaning towards not
+
+        shortcutManager.setDynamicShortcuts(Arrays.asList(webShortcut, dynamicShortcutEnter, dynamicShortcutView));
     }
 
     //first delete confirmation
     private void deleteDialog(){
+        final MediaPlayer warning = MediaPlayer.create(this, R.raw.airhorn);
+        warning.start();
         //alert dialog information found on Android Documentation with additional help being taken from Stack Overflow
         new AlertDialog.Builder(this)
                 .setTitle("Confirmation")
@@ -157,4 +177,6 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         db.delete(DB_TableName,null, null);
         Toast.makeText(this, "Database cleared", Toast.LENGTH_SHORT).show();
     }
+
+
 }

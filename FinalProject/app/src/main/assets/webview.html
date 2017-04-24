@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css"   href="w3.css">
+    <script>
+        var myToggle = false; //set global variable
+        function showAndroidToast(toast){
+           Android.ShowToast(toast);
+        }
+        function randomFact(){
+           Android.RandomFact();
+        }
+        function changeStyles(){
+           var myObject = document.getElementById("myHeading");
+           if (myToggle == false) {
+              myObject.style.fontSize = "40px";
+              myObject.style.color = "blue";
+              myToggle = true;
+           }else{
+              myObject.style.fontSize = "15px";
+              myObject.style.color = "black";
+              myToggle = false;
+           }
+        }
+    </script>
+</head>
+<div style="text-align:center">
+    <p id="myHeading" class="w3-leftbar w3-rightbar">It's a wizard!</p>
+</div>
+<div style="text-align:center">
+    <img id="scan_art" src="scan_art.jpg" height="60" width="60">
+    <img id="fastbond_art" src="fastbond_art.png" height="60" width="60">
+    <img id="force_of_will_art" src="Force-of-Will-Judge-Promo-MtG-Art.jpg" height="60" width="60">
+    <img id="mizzium_meddler" src="Mizzium-Meddler-Promo-MtG-Art.jpg" height="60" width="60">
+    <img id="zur_the_enchanter" src="Zur-the-Enchanter-Promo-MtG-Art.jpg" height="60" width="60">
+    <img id="damia" src="damia.jpg" height="60" width="60">
+</div>
+
+<hr>
+<input type="button" value="Random Fact" onclick="randomFact()" class="w3-bar w3-green"/>
+<br>
+</body>
+</html>

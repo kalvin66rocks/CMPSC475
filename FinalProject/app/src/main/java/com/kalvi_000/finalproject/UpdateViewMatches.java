@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 //import android.util.Log;
@@ -23,10 +24,7 @@ import android.widget.Spinner;
  * Used to Update and View match information
  */
 
-public class UpdateViewMatches
-        extends Activity
-        implements DatabaseConstants,
-        CompoundButton.OnCheckedChangeListener{
+public class UpdateViewMatches extends Activity implements DatabaseConstants, CompoundButton.OnCheckedChangeListener{
 
     private int positionInDB;
 
@@ -261,7 +259,50 @@ public class UpdateViewMatches
 
     }
 
+    //auto generated suppress code
     public void deleteMatch(@SuppressWarnings("UnusedParameters") View view){
+        final MediaPlayer warning = MediaPlayer.create(this, R.raw.warning);
+        warning.start();
         confirmationDialog();
+    }
+
+    //preserve data on phone rotation
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString("Name",name.getText().toString());
+        savedInstanceState.putString("DeckPlayed",deckPlayed.getText().toString());
+        savedInstanceState.putString("Opponent",opponent.getText().toString());
+        savedInstanceState.putString("OpponentDeck",opponentDeck.getText().toString());
+        savedInstanceState.putString("PlayLevel", playLevel);
+        savedInstanceState.putInt("Result", resultSpinner.getSelectedItemPosition());
+
+        //save the data
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    //Restore Data
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        //restore the data
+
+        name.setText(savedInstanceState.getString("Name"));
+        deckPlayed.setText(savedInstanceState.getString("DeckPlayed"));
+        opponent.setText(savedInstanceState.getString("Opponent"));
+        opponentDeck.setText(savedInstanceState.getString("OpponentDeck"));
+        playLevel = savedInstanceState.getString("Name");
+        switch(playLevel){
+            case "Casual":
+                casualRB.setChecked(true);
+                break;
+            case "Testing":
+                testingRB.setChecked(true);
+                break;
+            case "Competitive":
+                competitiveRB.setChecked(true);
+                break;
+        }
+        resultSpinner.setSelection(savedInstanceState.getInt("Result"));
+
     }
 }
