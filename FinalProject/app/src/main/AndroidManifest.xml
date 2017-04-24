@@ -26,34 +26,34 @@
             </intent-filter>
         </service>
 
-
-
-
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".EnterMatches"
-            android:label="Enter matches activity" >
+            android:name=".EnterMatches">
+            <!--This intent allows the dynamic shortcut manager to open the activity from the shortcut -->
             <intent-filter>
                 <action android:name="com.kalvi_000.finalproject.OPEN_DYNAMIC_SHORTCUT" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ViewMatches" >
+            <!--This intent allows the dynamic shortcut manager to open the activity from the shortcut -->
             <intent-filter>
                 <action android:name="com.kalvi_000.finalproject.OPEN_DYNAMIC_SHORTCUT_VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".UpdateViewMatches" >
 
-            <!-- will not be putting shortcut stuff here as we do not want to be able to get here from externally -->
-        </activity>
+        <activity android:name=".UpdateViewMatches" />
+
         <activity android:name=".RandomCardWebView" />
+
         <activity android:name=".ScrollActivity"/>
     </application>
 
