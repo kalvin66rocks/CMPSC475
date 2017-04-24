@@ -40,7 +40,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "TBD - Scroll View thing", "Wizards Only!"};
+        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "Favorite Cards", "Wizards Only!"};
         setListAdapter(new ArrayAdapter<>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
 
         //function call to set dynamic shortcuts
@@ -90,8 +90,8 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://gatherer.wizards.com/Pages/Default.aspx")));
                 break;
             case 4:
-                //not sure what this will be used for but I imagine it will be something to do with a webview activity
-                //empty
+                //favorite card scroll view activity (not built yet)
+                startActivity(new Intent(MainActivity.this, ScrollActivity.class));
                 break;
             case 5:
                 startActivity(new Intent(MainActivity.this, RandomCardWebView.class));
