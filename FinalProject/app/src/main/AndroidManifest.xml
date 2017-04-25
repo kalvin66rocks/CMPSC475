@@ -6,6 +6,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <!-- It is possible that a line needs to be added that allows permission to th main wear activity or vice a versa
+    also can try looking into signing the two apps the same through the manifest
+    whether it is through the same key or something
+    <permission android:name="com.kalvi_000.finalprojectwear.MainActivityWear"/>
+    -->
+
     <!-- These permissions are attempting to get the message to come through from wear -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
