@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/changebackground"
+        android:orderInCategory="100"
+        android:title="ChangeBackground"
+        android:icon="@drawable/mtggoldfishlogo1"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/action_settings1"
+                android:orderInCategory="100"
+                android:title="MTGGoldfish"
+                android:icon="@drawable/mtggoldfishlogo1"
+                app:showAsAction="always"/>
+            <item
+                android:id="@+id/action_settings2"
+                android:orderInCategory="100"
+                android:title="ChannelFireball"
+                android:icon="@drawable/channelfireball_icon"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+</menu>

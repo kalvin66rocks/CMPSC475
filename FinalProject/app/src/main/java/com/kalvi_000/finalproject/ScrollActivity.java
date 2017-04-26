@@ -13,6 +13,13 @@ public class ScrollActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scroll_view_layout);
+
+        //connect all views in onCreate
+        connectViews();
+    }
+
+    private void connectViews(){
+
     }
 
     //will probably have a button to alter the contents of a scroll view.

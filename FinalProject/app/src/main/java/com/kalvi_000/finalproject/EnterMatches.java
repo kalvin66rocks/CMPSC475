@@ -5,13 +5,17 @@ import android.content.ContentValues;
 //import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,7 +24,7 @@ import android.widget.Toast;
  * Enter match information here
  */
 
-public class EnterMatches extends Activity implements View.OnLongClickListener, CompoundButton.OnCheckedChangeListener, DatabaseConstants
+public class EnterMatches extends AppCompatActivity implements View.OnLongClickListener, CompoundButton.OnCheckedChangeListener, DatabaseConstants
 {
 
     //connect UI elements
@@ -49,8 +53,28 @@ public class EnterMatches extends Activity implements View.OnLongClickListener, 
         EventsData events;
         events = new EventsData(this);
         db = events.getWritableDatabase(); //open the database
+    }
 
+    //connect the menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    //create menu handler
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.action_settings1:
+                Toast.makeText(this, "action setting 1", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_settings2:
+                Toast.makeText(this, "action setting 2", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void commitResults(@SuppressWarnings("UnusedParameters") View view){
