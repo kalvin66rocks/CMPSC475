@@ -86,17 +86,6 @@ public class MainActivityWear extends WearableActivity{
         }).start();
     }
 
-    public void makeToast(View view){
-        Toast.makeText(this, "Let's send a message to mobile!" ,Toast.LENGTH_SHORT).show();
-        sendToast();
-
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);
-    }
-
     @Override
     public void onEnterAmbient(Bundle ambientDetails) {
         super.onEnterAmbient(ambientDetails);
@@ -129,16 +118,69 @@ public class MainActivityWear extends WearableActivity{
         }
     }
 
-    private void sendToast() {
+    private void sendToast(final String Message) {
         if (nodeId != null) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     client.blockingConnect(CONNECTION_TIME_OUT_MS, TimeUnit.MILLISECONDS);
-                    Wearable.MessageApi.sendMessage(client, nodeId, MESSAGE, null);
+                    Wearable.MessageApi.sendMessage(client, nodeId, Message, null);
                     client.disconnect();
                 }
             }).start();
         }
+    }
+
+    public void makeToast(View view){
+        Toast.makeText(this, "LaunchEnterMatches" ,Toast.LENGTH_SHORT).show();
+        sendToast("LaunchEnterMatches");
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "LaunchEnterMatches");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
+
+    public void viewMatches (View view){
+        Toast.makeText(this, "LaunchViewMatches" ,Toast.LENGTH_SHORT).show();
+        sendToast("LaunchViewMatches");
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "LaunchViewMatches");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
+    public void webViewACtivity (View view) {
+        Toast.makeText(this, "LaunchWebView" ,Toast.LENGTH_SHORT).show();
+        sendToast("LaunchWebView");
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "LaunchWebView");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
+    public void cardWebSearch(View view){
+        Toast.makeText(this, "LaunchWebSearch" ,Toast.LENGTH_SHORT).show();
+        sendToast("LaunchWebSearch");
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "LaunchWebSearch");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
+    }
+
+    public void iconicCards (View view){
+        Toast.makeText(this, "LaunchIconicCards" ,Toast.LENGTH_SHORT).show();
+        sendToast("LaunchIconicCards");
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "LaunchIconicCards");
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 }
