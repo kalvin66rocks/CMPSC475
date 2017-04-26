@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ContentValues;
 //import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -66,12 +67,23 @@ public class EnterMatches extends AppCompatActivity implements View.OnLongClickL
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.relativeEntermatches);
         switch (id){
-            case R.id.action_settings1:
-                Toast.makeText(this, "action setting 1", Toast.LENGTH_SHORT).show();
+            case R.id.mtggoldfish:
+                layout.setBackgroundResource(R.drawable.mtggoldfish_background);
+                //Toast.makeText(this, "action setting 1", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.action_settings2:
-                Toast.makeText(this, "action setting 2", Toast.LENGTH_SHORT).show();
+            case R.id.channelfireball:
+                layout.setBackgroundResource(R.drawable.channelfireball_background);
+                break;
+            case R.id.solidcolor:
+                layout.setBackgroundColor(Color.CYAN);
+                break;
+            case R.id.original:
+                layout.setBackgroundResource(R.drawable.mtgcardback);
+                break;
+            case R.id.about:
+                Toast.makeText(this, "This where we will launch the non existant about page", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);

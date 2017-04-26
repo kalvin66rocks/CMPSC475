@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeEntermatches"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mtgcardback">
@@ -8,10 +9,10 @@
         android:id="@+id/RadioButtonGroupEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:orientation="horizontal"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/casualRadioButton"
@@ -42,13 +43,13 @@
         android:id="@+id/nameEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/RadioButtonGroupEdit"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="41dp"
         android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Name"
-        android:inputType="textPersonName"
-        android:layout_below="@+id/RadioButtonGroupEdit"
-        android:layout_centerHorizontal="true" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/deckPlayedEdit"

@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/solidcolor"
+        android:orderInCategory="100"
+        android:title="Solid Color"
+        android:icon="@drawable/solid_color"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/changebackground"
         android:orderInCategory="100"
         android:title="ChangeBackground"
@@ -10,17 +16,28 @@
         app:showAsAction="never">
         <menu>
             <item
-                android:id="@+id/action_settings1"
+                android:id="@+id/mtggoldfish"
                 android:orderInCategory="100"
                 android:title="MTGGoldfish"
                 android:icon="@drawable/mtggoldfishlogo1"
-                app:showAsAction="always"/>
+                app:showAsAction="never"/>
             <item
-                android:id="@+id/action_settings2"
+                android:id="@+id/channelfireball"
                 android:orderInCategory="100"
                 android:title="ChannelFireball"
                 android:icon="@drawable/channelfireball_icon"
                 app:showAsAction="never"/>
+            <item
+                android:id="@+id/original"
+                android:orderInCategory="100"
+                android:title="Card Back"
+                android:icon="@drawable/mtgcardback"
+                app:showAsAction="never"/>
         </menu>
     </item>
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="100"
+        android:title="About App"
+        app:showAsAction="never"/>
 </menu>
