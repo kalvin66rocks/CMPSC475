@@ -19,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/background_light"
             android:text="Casual" />
 
         <RadioButton
@@ -26,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/background_light"
             android:text="Testing" />
 
         <RadioButton
@@ -33,6 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/background_light"
             android:text="Competitive" />
     </RadioGroup>
 
@@ -43,6 +46,7 @@
         android:layout_alignStart="@+id/RadioButtonGroupEdit"
         android:layout_below="@+id/RadioButtonGroupEdit"
         android:layout_marginTop="39dp"
+        android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName" />
@@ -54,6 +58,7 @@
         android:layout_alignStart="@+id/nameEdit"
         android:layout_below="@+id/nameEdit"
         android:layout_marginTop="44dp"
+        android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Deck Played"
         android:inputType="textPersonName" />
@@ -65,6 +70,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/RadioButtonGroupEdit"
         android:layout_marginEnd="13dp"
+        android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Opponent"
         android:inputType="textPersonName" />
@@ -76,6 +82,7 @@
         android:layout_alignBaseline="@+id/nameEdit"
         android:layout_alignBottom="@+id/nameEdit"
         android:layout_alignStart="@+id/opponentEdit"
+        android:background="@android:color/background_light"
         android:ems="10"
         android:hint="Opponent's Deck"
         android:inputType="textPersonName" />
@@ -86,7 +93,8 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/opponentDeckEdit"
         android:layout_below="@+id/opponentDeckEdit"
-        android:layout_marginTop="31dp" />
+        android:layout_marginTop="31dp"
+        android:background="@android:color/background_light" />
 
     <Button
         android:id="@+id/BackButtonEnterMatch"

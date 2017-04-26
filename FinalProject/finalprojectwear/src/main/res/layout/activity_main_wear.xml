@@ -10,13 +10,6 @@
     tools:deviceIds="wear">
 
     <TextView
-        android:id="@+id/text"
-        app:layout_box="all"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_world" />
-
-    <TextView
         android:id="@+id/clock"
         app:layout_box="all"
         android:layout_gravity="bottom|start"
@@ -26,17 +19,53 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/secondary_text_light">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/button5"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@+id/button2"
+            android:background="@drawable/mountain" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/button3"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/swamp" />
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="34dp"
-            android:onClick="makeToast"
-            android:text="Toast" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/forest"
+            android:onClick="makeToast" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/button3"
+            android:layout_alignStart="@+id/button3"
+            android:layout_marginStart="28dp"
+            android:background="@drawable/plains" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/button4"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/button5"
+            android:background="@drawable/island" />
     </RelativeLayout>
 
 </android.support.wearable.view.BoxInsetLayout>

@@ -7,15 +7,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 //import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 //import android.widget.Toast;
 
@@ -24,7 +29,7 @@ import android.widget.Spinner;
  * Used to Update and View match information
  */
 
-public class UpdateViewMatches extends Activity implements DatabaseConstants, CompoundButton.OnCheckedChangeListener{
+public class UpdateViewMatches extends AppCompatActivity implements DatabaseConstants, CompoundButton.OnCheckedChangeListener{
 
     private int positionInDB;
 
@@ -78,6 +83,40 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
 
         //setup an intent to get back to view matches
         returnToList = new Intent();
+    }
+
+    //connect the menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    //create menu handler
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.EditMatches);
+        switch (id){
+            case R.id.mtggoldfish:
+                layout.setBackgroundResource(R.drawable.mtggoldfish_background);
+                //Toast.makeText(this, "action setting 1", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.channelfireball:
+                layout.setBackgroundResource(R.drawable.channelfireball_background);
+                break;
+            case R.id.solidcolor:
+                layout.setBackgroundColor(Color.CYAN);
+                break;
+            case R.id.original:
+                layout.setBackgroundResource(R.drawable.mtgcardback);
+                break;
+            case R.id.about:
+                //go to the about page
+                startActivity(new Intent(UpdateViewMatches.this, About.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     //go back to previous screen

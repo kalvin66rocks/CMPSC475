@@ -19,7 +19,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 import static android.content.ContentValues.TAG;
 
@@ -64,8 +63,8 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 startActivity(new Intent(MainActivity.this, EnterMatches.class));
                 break;
             case 1:
+                //if we need to debug the db, we can uncomment this out
                 /*
-                //will be temporarily used to debug db via logcat
                 cursor = db.query(DB_TableName, null, null, null, null, null, null);
                 while (cursor.moveToNext()) {  //move to next row, if possible
                     dbID = cursor.getInt(0);
