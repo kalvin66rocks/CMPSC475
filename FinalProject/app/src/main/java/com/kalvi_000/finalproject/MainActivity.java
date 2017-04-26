@@ -43,7 +43,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         super.onCreate(savedInstanceState);
 
         //fill up the list view  with all of the main menu options
-        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "Favorite Cards", "Wizards Only!"};
+        String[] menuChoices = {"Enter a Match","View Match History", "Clear All Match History", "Look up a Card", "Iconic Cards", "Wizards Only!"};
         setListAdapter(new ArrayAdapter<>(this, R.layout.activity_main,R.id.menuOption, menuChoices));
 
         //function call to set dynamic shortcuts

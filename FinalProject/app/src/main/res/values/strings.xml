@@ -17,4 +17,11 @@
         <item>Random Fact 5</item>
         <item>Random Fact 6</item>
     </string-array>
+    <string-array name="Colors">
+        <item>White</item>
+        <item>Blue</item>
+        <item>Black</item>
+        <item>Red</item>
+        <item>Green</item>
+    </string-array>
 </resources>
