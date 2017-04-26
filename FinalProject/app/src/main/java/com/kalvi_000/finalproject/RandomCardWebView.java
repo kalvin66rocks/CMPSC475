@@ -48,6 +48,7 @@ public class RandomCardWebView extends Activity {
         randomCard.setVisibility(View.INVISIBLE);
         Button myButton = (Button) findViewById(R.id.button2);
         //according to errors and documentation, setting the listener for the button here is the only way to properly do things whenever a webview is involved
+        //pull up a random card from wizards website within a webview using the random url that wizards provides to do that
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,12 +67,7 @@ public class RandomCardWebView extends Activity {
             myContext = c;
         }
 
-        //I don't think I'm using this so it will end up removed
-        @JavascriptInterface
-        public void ShowToast(String toastMsg){
-            Toast.makeText(myContext,toastMsg,Toast.LENGTH_LONG).show();
-        }
-
+        //our javascript is simple, it will display some facts as toasts based off of a random number generator
         @JavascriptInterface
         public void RandomFact(){
             Random rand = new Random();

@@ -3,6 +3,7 @@ package com.kalvi_000.finalproject;
 /**
  * Created by kalvi_000 on 4/15/2017.
  * Constants for keeping the database happy
+ * Also make for clean and cconsistent code with less magical numbers
  */
 
 interface DatabaseConstants {

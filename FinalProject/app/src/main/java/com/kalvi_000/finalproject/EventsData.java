@@ -13,6 +13,7 @@ import static android.provider.BaseColumns._ID;
 
 class EventsData extends SQLiteOpenHelper implements DatabaseConstants {
 
+    //database creation stuff
     EventsData(Context ctx) {
         super(ctx, DB_NAME, null, DB_VERSION); //defines name and version
 
@@ -25,9 +26,10 @@ class EventsData extends SQLiteOpenHelper implements DatabaseConstants {
                 " INTEGER PRIMARY KEY AUTOINCREMENT, playlevel Integer, name TEXT NOT NULL, deckplayed TEXT NOT NULL, opponent TEXT NOT NULL, opponentdeck TEXT NOT NULL, result TEXT NOT NULL);");
     }
 
+    //if we upgrade our database do this stuff, probably won't be used however
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS matches");
+        db.execSQL("DROP TABLE IF EXISTS " + DB_TableName  );
         onCreate(db);
 
     }

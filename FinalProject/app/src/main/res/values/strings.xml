@@ -11,11 +11,11 @@
     </string-array>
     <string-array name="RandomFacts">
         <item>Magic was created by Richard Garfield in 1993 while he was attending the Pennsylvania University as a graduate student.</item>
-        <item>Random Fact 2</item>
-        <item>Random Fact 3</item>
-        <item>Random Fact 4</item>
-        <item>Random Fact 5</item>
-        <item>Random Fact 6</item>
+        <item>The Reserve List is a list of cards from magic\'s early history that will never be reprinted.</item>
+        <item>The original art that was commissioned for Magic was commissioned through a group of recent art school grads that were eager to get something published</item>
+        <item>Magic is now printed in 11 different languages!</item>
+        <item>Magic cards have their own patented and trademarked font called Beleren</item>
+        <item>Magic was lmost called Mana Clash instead of Magic: The Gathering due trademarking issues with the word Magic</item>
     </string-array>
     <string-array name="Colors">
         <item>White</item>

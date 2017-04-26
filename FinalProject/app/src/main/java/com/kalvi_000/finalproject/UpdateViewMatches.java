@@ -76,6 +76,7 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
         //do stuff to set our spinner
         spinnerStuff();
 
+        //setup an intent to get back to view matches
         returnToList = new Intent();
     }
 
@@ -112,12 +113,13 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
         if(!casualRB.isChecked() && !testingRB.isChecked() && !competitiveRB.isChecked()){
             incomplete = true;
         }
+        //if there are no empty fields
         if(!incomplete) {
             updateInformation();
         }
     }
 
-    //confirmation dialog instructions found within the AndroidSDK documentation and figuring stuff out in Android Studio
+    //confirmation dialog instructions found within the AndroidSDK documentation and working in in Android Studio
     private void confirmationDialog(){
         new AlertDialog.Builder(this)
                 .setTitle("Confirm Deletion")
@@ -177,7 +179,7 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
         }
     }
 
-    //update the databse entry to the new results the user has entered
+    //update the database entry to the new results the user has entered
     private void updateInformation(){
         ContentValues someValues = new ContentValues(); // this is a single row in the database.
         someValues.put("playlevel", playLevel);
@@ -215,7 +217,7 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
         }
     }
 
-    //connect all th eonjects in the UI
+    //connect all the objects in the UI
     private void inflateObjects(){
         //connect all the edit texts and buttons
         casualRB = (RadioButton) findViewById(R.id.casualEditRadioButton);
@@ -233,7 +235,7 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
         resultSpinner = (Spinner) findViewById(R.id.ResultSpinnerEdit);
     }
 
-    //do database stuff
+    //retrieve information from the database
     private void dbStuff(){
         //grab stuff from the database and populate all of our fields
         cursor = db.query(DB_TableName, null, "_id=" + Integer.toString(positionInDB), null, null, null, null);
@@ -264,14 +266,12 @@ public class UpdateViewMatches extends Activity implements DatabaseConstants, Co
 
     //delete the current entry in the databases the exit the activity
     private void deleteDBEntry(){
-        //if I did this wrong it will delete the whole database
         db.delete(DB_TableName,"_id=" + Integer.toString(positionInDB), null);
         setResult(Activity.RESULT_OK, returnToList);
         finish();
 
     }
 
-    //auto generated suppress code
     //play  a noise whenever the attempt to delete a database entry
     public void deleteMatch(@SuppressWarnings("UnusedParameters") View view){
         final MediaPlayer warning = MediaPlayer.create(this, R.raw.warning);

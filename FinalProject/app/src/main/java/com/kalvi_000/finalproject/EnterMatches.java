@@ -3,6 +3,7 @@ package com.kalvi_000.finalproject;
 import android.app.Activity;
 import android.content.ContentValues;
 //import android.database.Cursor;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -83,7 +84,8 @@ public class EnterMatches extends AppCompatActivity implements View.OnLongClickL
                 layout.setBackgroundResource(R.drawable.mtgcardback);
                 break;
             case R.id.about:
-                Toast.makeText(this, "This where we will launch the non existant about page", Toast.LENGTH_SHORT).show();
+                //go to the about page
+                startActivity(new Intent(EnterMatches.this, About.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -244,6 +246,7 @@ public class EnterMatches extends AppCompatActivity implements View.OnLongClickL
         opponent.setText(savedInstanceState.getString("Opponent"));
         opponentDeck.setText(savedInstanceState.getString("OpponentDeck"));
         playLevel = savedInstanceState.getString("Name");
+        //set the radial buttons
         switch(playLevel){
             case "Casual":
                 casualRB.setChecked(true);

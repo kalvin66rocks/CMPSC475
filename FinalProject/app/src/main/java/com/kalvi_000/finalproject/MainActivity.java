@@ -88,7 +88,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
                 startActivity(new Intent(MainActivity.this, ViewMatches.class));
                 break;
             case 2:
-                //delete all entries after 2 confirmations
+                //delete all entries after 2 confirmations and verbal warning
                 deleteDialog();
                 break;
             case 3:
@@ -106,6 +106,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         }
     }
 
+    //function to do dynamic shortcut stuff
     private void createShortCuts(){
         //Dynamic Shortcut instructions found at https://catinean.com/2016/10/20/exploring-android-nougat-7-1-app-shortcuts/
         ShortcutManager shortcutManager = getSystemService(ShortcutManager.class);
@@ -114,7 +115,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         ShortcutInfo webShortcut = new ShortcutInfo.Builder(this, "shortcut_web")
                 .setShortLabel("Card Search")
                 .setLongLabel("Open wizard's website to search for cards")
-                .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
+                .setIcon(Icon.createWithResource(this, R.drawable.swamp))
                 .setIntent(new Intent(Intent.ACTION_VIEW, Uri.parse("http://gatherer.wizards.com/Pages/Default.aspx")))
                 .build();
 
@@ -122,7 +123,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         ShortcutInfo dynamicShortcutEnter = new ShortcutInfo.Builder(this, "id1")
                 .setShortLabel("Enter a Match Result")
                 .setLongLabel("Enter the Results of a Match Quickly")
-                .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
+                .setIcon(Icon.createWithResource(this, R.drawable.plains))
                 .setIntents(
                         new Intent[]{
                                 new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK),
@@ -134,7 +135,7 @@ public class MainActivity extends ListActivity implements  DatabaseConstants{
         ShortcutInfo dynamicShortcutView = new ShortcutInfo.Builder(this, "id2")
                 .setShortLabel("View Match Results")
                 .setLongLabel("View Match Results")
-                .setIcon(Icon.createWithResource(this, R.drawable.planeswalker_symbol))
+                .setIcon(Icon.createWithResource(this, R.drawable.forest))
                 .setIntents(
                         new Intent[]{
                                 new Intent(Intent.ACTION_MAIN, Uri.EMPTY, this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK),

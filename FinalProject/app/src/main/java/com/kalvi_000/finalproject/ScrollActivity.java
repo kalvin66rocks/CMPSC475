@@ -72,6 +72,7 @@ public class ScrollActivity extends Activity {
 
     }
 
+    //change the images that are in teh scroll view, not entirely sure if setImageResource is required everytime, but since we use this to intialize it can stay
     public void changeCards(int selection){
         switch (selection){
             case 0: //white

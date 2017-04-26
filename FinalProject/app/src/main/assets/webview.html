@@ -4,24 +4,8 @@
 <head>
     <link rel="stylesheet" type="text/css"   href="w3.css">
     <script>
-        var myToggle = false; //set global variable
-        function showAndroidToast(toast){
-           Android.ShowToast(toast);
-        }
         function randomFact(){
            Android.RandomFact();
-        }
-        function changeStyles(){
-           var myObject = document.getElementById("myHeading");
-           if (myToggle == false) {
-              myObject.style.fontSize = "40px";
-              myObject.style.color = "blue";
-              myToggle = true;
-           }else{
-              myObject.style.fontSize = "15px";
-              myObject.style.color = "black";
-              myToggle = false;
-           }
         }
     </script>
 </head>

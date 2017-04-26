@@ -34,19 +34,24 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
     private String dbPlayLevel;
     private ArrayList<Integer> dbIDList = new ArrayList<>();
 
+    //intent to go to update
     private Intent callUpdateView;
 
+    //int for going between intents
     private static final int REQUEST_CODE = 10;
 
+    //string to allow us to use dynamic shortcuts
     public static final String VIEW = BuildConfig.APPLICATION_ID + ".OPEN_DYNAMIC_SHORTCUT_VIEW";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         refreshInformation();
+        //set up our Intent
         callUpdateView = new Intent(this, UpdateViewMatches.class);
     }
 
+    //whenever a user selects a match
     protected void onListItemClick(ListView l, View v, int position, long id) {
         callUpdateView.putExtra("Database Position", dbIDList.get(position));
         startActivityForResult(callUpdateView,REQUEST_CODE);
@@ -57,15 +62,17 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==REQUEST_CODE){
             if(resultCode== Activity.RESULT_OK){
+                //if we successfully come back from update refresh
                 refreshInformation();
             }
             else{
-                Log.d("Brenneman","Shouldn't be here");
+                //refresh regardless since it covers corner cases
                 refreshInformation();
             }
         }
     }
 
+    //refresh the information and populate the listview
     private void refreshInformation(){
         //database stuff
         EventsData events;
@@ -75,9 +82,6 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
 
         cursor = db.query(DB_TableName, null, null, null, null, null, null);
         while (cursor.moveToNext()) {  //move to next row, if possible
-            //could use this to loop through the database filling an array list for each of elements we want, using a property of strings to make them all a standard length,
-            //from there it would be easily to keep tht columns aligned
-            // it would make the listener for onItemSelected a little more ridiculous, but would prevent it from looking like shit
             String tempFill;
             dbID = cursor.getInt(0);
             dbIDList.add(dbID); //used to pass the id of the selected element along when needed
@@ -88,10 +92,11 @@ public class ViewMatches extends ListActivity implements DatabaseConstants {
             dbOpponentDeck = cursor.getString(5);
             dbResult = cursor.getString(6);
 
-            //need to clean up this string, currently to long.
             tempFill = dbPlayLevel + ": " + dbName +" (" + dbDeckPlayed + ") vs " + dbOpponent + " (" + dbOpponentDeck + ") Result: " + dbResult;
+            //place our temporary string into the database
             dbStrings.add(tempFill);
         }
+        //set the adapter that the user will see
         setListAdapter(new ArrayAdapter<>(this, R.layout.view_matches, R.id.databaseEntries, dbStrings));
     }
 
