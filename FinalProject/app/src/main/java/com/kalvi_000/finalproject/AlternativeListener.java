@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 /**
  * Created by Kevin on 4/26/2017.
+ * This was listener created in an alternative attempt to get messages from wear to mobile
  */
 
 public class AlternativeListener extends Activity {
