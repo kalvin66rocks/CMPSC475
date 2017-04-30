@@ -1,5 +1,6 @@
 package com.kalvi_000.finalproject;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -135,10 +136,15 @@ public class MainActivityWear extends WearableActivity{
         Toast.makeText(this, "LaunchEnterMatches" ,Toast.LENGTH_SHORT).show();
         sendToast("LaunchEnterMatches");
 
-        Intent sendIntent = new Intent();
+        Intent sendIntent = new Intent(Intent.ACTION_MAIN);
+        sendIntent.setComponent(new ComponentName("com.kalvi_000.finalproject","com.kalvi_000.finalproject.MainActivity"));
+        startActivity(sendIntent);
+
+        /*
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, "LaunchEnterMatches");
         sendIntent.setType("text/plain");
+        */
         startActivity(sendIntent);
     }
 
